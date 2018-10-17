@@ -34,7 +34,7 @@ CREATE TABLE achat (
   libelleArticle TEXT,
   id INT,
   nbArticle INT,
-	etatLivraison TEXT check (etatLivraison = "A FAIRE" ou etatLivraison = "EN COURS" ou etatLivraison = "LIVRÉ")
+	etatLivraison TEXT check (etatLivraison = "A FAIRE" ou etatLivraison = "EN COURS" ou etatLivraison = "LIVRÉ"),
   PRIMARY KEY(libelleArticle, id),
   FOREIGN KEY(libelleArticle) REFERENCES article(libelle),
   FOREIGN KEY(id) REFERENCES client(id)
