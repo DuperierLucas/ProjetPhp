@@ -1,4 +1,3 @@
 <?php
-jhgt
- ?>
-tufugyug
+  header('Location: controler/afficherArticles.ctrl.php');
+?>
