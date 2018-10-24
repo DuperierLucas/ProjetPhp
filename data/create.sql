@@ -21,6 +21,7 @@ CREATE TABLE client (
   nom TEXT,
   prenom TEXT,
   adresse TEXT,
+	telephone INT,
   mail TEXT,
   motDePasse TEXT
 );
