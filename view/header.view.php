@@ -12,10 +12,10 @@
 
         <nav class="nav">
           <ul>
-            <li><a href="controler/afficherArticles.ctrl.php?categorie=tout">Tous Les Vins</a></li>
+            <li><a href="../controler/afficherArticles.ctrl.php?categorie=tout">Tous Les Vins</a></li>
 
             <?php foreach ($categories as $value) : ?>
-            <li><a href="controler/afficherArticles.ctrl.php?categorie=<?=$value->ref?>"><?=$value->nom?></a></li>
+            <li><a href="../controler/afficherArticles.ctrl.php?categorie=<?=$value->ref?>"><?=$value->nom?></a></li>
             <?php endforeach ?>
 
           </ul>
