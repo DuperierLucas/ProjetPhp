@@ -34,7 +34,7 @@ class DAO {
     return $result;
   }
 
-  //Recupère les articles selon 
+  //Recupère les articles selon la catégorie
   function getArticle(int $categorie) : array {
     $req = "SELECT * FROM article WHERE categorie='$categorie'";
 
@@ -44,6 +44,7 @@ class DAO {
     return $result;
   }
 
+  //Recupère tout les articles
   function getAllArticle() : array {
     $req = "SELECT * FROM article";
 
@@ -54,10 +55,5 @@ class DAO {
   }
 
 }
-
-//A FAIRE FONCTION QUI RETOURNE PANIER OU COMMANDE SELON NUM CLIENT !
-
-
-
 
 ?>
