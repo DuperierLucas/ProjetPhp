@@ -5,7 +5,7 @@
     <title>Alcooliques&Anonymes - Accueil</title>
   </head>
   <body>
-      <?php require_once('header.view.php'); ?>
+      <?php require_once('../view/header.view.php'); ?>
       <section>
 
         <?php foreach ($categories as $value) :?>
