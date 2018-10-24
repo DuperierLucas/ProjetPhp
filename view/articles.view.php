@@ -10,7 +10,7 @@
     <!-- Une section contient l'ensemble des produit à afficher -->
 
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
-    <?php if ($commande) : ?>
+    <?php if (isset($commande) : ?>
     <p>Votre produit a été ajouté au panier</p>
     <?php endif?>
 
