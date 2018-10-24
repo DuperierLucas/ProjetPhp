@@ -6,12 +6,17 @@ include_once("../model/DAO.class.php");
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
-
+  if (isset($_GET['categorie'])) {
+    $categorie = $_GET['categorie'];
+  } else $erreur = true;
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
-//test mathias
+
+if ($categorie != 'tout') {
+  $articles = $dao->getArticle()
+}
 
 
 
@@ -22,8 +27,9 @@ include_once("../model/DAO.class.php");
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-
-include('../view/articles.view.php');
+if ($erreur) {
+  include('../view/erreur.view.php');
+} else include('../view/articles.view.php');
 
 
 
