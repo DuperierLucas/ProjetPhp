@@ -14,6 +14,7 @@ $categorie = $_GET['categorie'];
 if (isset($_GET['article'])) {
   //Le client à cliquer sur un article pour le commander
   setcookie($_GET['article'], "commande");
+  $article = $dao -> getArticle($_GET['article']);
   $commande = true;
 }
 
