@@ -4,14 +4,16 @@
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
-foreach ($_COOKIE as $key) {
-  $article = $dao->getArticle($key);
-  //l'ajouter a $articles
-}
+array $articles;
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
+
+foreach ($_COOKIE as $key) {
+  $article = $dao->getArticle($key);
+  array_push($articles, $article);
+}
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
