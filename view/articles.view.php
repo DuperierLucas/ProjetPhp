@@ -13,9 +13,9 @@
       <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
       <a href="#">
         <div>
-          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->nom ?>">
+          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
           <!-- Nom du vin -->
-          <p><?= $value->nom ?></p>
+          <p><?= $value->libelle ?></p>
           <!-- Description du vin -->
           <p><?= $value->description?></p>
           <!-- Caractéristiques -->
