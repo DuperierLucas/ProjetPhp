@@ -10,8 +10,8 @@
     <!-- Une section contient l'ensemble des produit à afficher -->
 
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
-    <?php if (isset($commande) : ?>
-    <p>Votre produit a été ajouté au panier</p>
+    <?php if(isset($commande)) : ?>
+    <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
 
     <section>
@@ -32,7 +32,7 @@
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
         </div>
       </a>
-    <?php endforeach; ?>
+    <?php endforeach ?>
 
     </section>
 
