@@ -21,12 +21,12 @@
           <input type="text" name="pr" size="75" id="prenom" required/>
           </br>
 
-          <label for="mail">Quelle est votre addresse Email ?</label>
-          <input type="Email" name="mel1" size="100" id="mail" required/>
+          <label for="mail1">Quelle est votre addresse Email ?</label>
+          <input type="Email" name="mel1" size="100" id="mail1" required/>
           </br>
 
           <label for="mail2">Vérification de votre addresse Email :</label>
-          <input type="Email" name="mel" size="100" id="mail2" required/>
+          <input type="Email" name="mel2" size="100" id="mail2" required/>
           </br>
 
           <label for="mdp">Entrer un mot de passe :</label>
