@@ -8,6 +8,9 @@
     <?php require_once('header.view.php'); ?>
     <!-- Une section contient l'ensemble des produit à afficher -->
     <section>
+      <?php foreach ($articles as $value) {
+        // code...
+      }?>
       <!-- Chaque div représente un article -->
       <a href="#">
         <div>
