@@ -17,20 +17,12 @@
           <!-- Nom du vin -->
           <p><?= $value->nom ?></p>
           <!-- Description du vin -->
-<<<<<<< HEAD
           <p><?= $value->description?></p>
           <!-- Caractéristiques -->
           <!-- Annee -->
           <p><?= $value->annee?></p>
           <!-- Pourcentage alcool -->
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
-=======
-          <p>Vin rouge francais </p>
-          <!-- caractéristique -->
-          <p>3% d'alcool</p>
-          <!-- année -->
-          <p>2010</p>
->>>>>>> 9d217c1917465873b0ae6e040f6bd8630243ec0a
         </div>
       </a>
     <?php endforeach ?>
