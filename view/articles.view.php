@@ -17,7 +17,7 @@
     <section>
       <?php foreach ($articles as $value) : ?>
       <!-- Chaque div représente un article -->
-      <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
+      <!-- lorsque clique sur le lien ajoute au panier -->
       <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">
         <div>
           <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
