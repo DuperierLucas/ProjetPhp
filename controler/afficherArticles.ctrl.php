@@ -6,9 +6,7 @@ include_once('../model/DAO.class.php');
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
-  if (isset($_GET['categorie'])) {
-    $categorie = $_GET['categorie'];
-  } else $erreur = true;
+$categorie = $_GET['categorie'];
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
@@ -22,10 +20,6 @@ if ($categorie != 'tout') {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-if ($erreur) {
-  include('../view/erreur.view.php');
-} else include('../view/articles.view.php');
-
-
+include('../view/articles.view.php');
 
 ?>
