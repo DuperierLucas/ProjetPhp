@@ -1,0 +1,57 @@
+body{
+  font-family: sans-serif;
+}
+header{
+  background-color: white;
+}
+.header{
+  display: flex;
+  justify-content: space-around;
+
+}
+header input{
+  width : 1000px; 
+  background-color: #33393b;
+  border-radius: 5px 5px 5px 5px;
+  height: 30px;
+
+}
+header form{
+  padding: 20px;
+  padding-top: 30px;
+}
+header h1 a{
+  padding: 10px;
+  color: #23222f;
+  text-decoration: none;
+
+}
+header nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style: none;
+
+}
+
+.nav li{
+  padding: 20px 10px 20px 10px;
+  margin-right: 30px;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: #23222f;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+}
+nav a:hover{
+  color: #ca7447;
+
+}
+nav a:visited{
+  color: white;
+}
