@@ -31,22 +31,3 @@ CREATE TABLE administrateur (
   mail TEXT,
   motDePasse TEXT,
 )
-
-CREATE TABLE achat (
-  ref INT,
-  id INT,
-  nbArticle INT,
-	etatLivraison TEXT check (etatLivraison = "A FAIRE" ou etatLivraison = "EN COURS" ou etatLivraison = "LIVRÉ"),
-  PRIMARY KEY(ref, id),
-  FOREIGN KEY(ref) REFERENCES article(ref),
-  FOREIGN KEY(id) REFERENCES client(id)
-)
-
-CREATE TABLE panier (
-  ref INT,
-  id INT,
-  nbArticle INT,
-  PRIMARY KEY(ref, id),
-  FOREIGN KEY(ref) REFERENCES article(ref),
-  FOREIGN KEY(id) REFERENCES client(id)
-)
