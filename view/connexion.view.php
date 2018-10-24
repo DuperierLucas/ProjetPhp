@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Alcooliques&Anonyme - Connexion</title>
+    <title>Alcooliques&Anonymes - Connexion</title>
   </head>
   <body>
 
