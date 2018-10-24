@@ -1,6 +1,6 @@
       <header>
         <article class="header">
-          <h1> <a href="">Alcooliques&Anonymes.com</a></h1>
+          <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
           <form action="" method="post">
             <input type="text" name="recherche" value="Rechercher">
           </form>
