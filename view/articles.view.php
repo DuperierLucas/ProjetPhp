@@ -6,6 +6,10 @@
   </head>
   <body>
     <?php require_once('header.view.php'); ?>
-    
+    <article>
+      <div>
+        
+      </div>
+    </article>
   </body>
 </html>
