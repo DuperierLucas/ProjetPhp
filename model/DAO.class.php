@@ -24,6 +24,17 @@
             }
         }
 
+        function getCategorie() : array {
+          $req = "SELECT * FROM categorie";
+
+          $sth = $this->db->query($req);
+          $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+
+          return $result;
+        }
+
+    }
+
         //A FAIRE FONCTION QUI RETOURNE PANIER OU COMMANDE SELON NUM CLIENT !
 
 
