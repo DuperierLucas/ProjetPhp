@@ -34,6 +34,16 @@ class DAO {
     return $result;
   }
 
+  //Recupère l'article selon la référence
+  function getArticle(int $ref) : Article {
+    $req = "SELECT * FROM article WHERE ref='$ref'";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+    return $result[0];
+  }
+
   //Recupère les articles selon la catégorie
   function getArticles(int $categorie) : array {
     $req = "SELECT * FROM article WHERE categorie='$categorie'";
