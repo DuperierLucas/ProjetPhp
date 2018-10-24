@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
+    <?php if(isset($msgErreur)) : ?>
+      <p><?php echo $msgErreur; ?></p>
+    <?php endif ?>
 
     <form action="afficherNewUser.ctrl.php" method="post">
       <table class="formulaires">
@@ -30,7 +33,7 @@
 
         <tr>
           <td>Entrer un mot de passe :</td>
-          <td><input type="password" name="Ajzt" size="100"></td>
+          <td><input type="password" name="ajzt" size="100"></td>
         </tr>
 
         <tr>
