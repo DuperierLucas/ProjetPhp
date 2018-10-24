@@ -1,10 +1,10 @@
-1|Bourgogne|Bon_vin|42%|2|34.1|image/bourgogne.jpg
-2|chateau_la_coste|Grand_vin||||chateau_la_coste.jpg
-3||||||
-4||||||
-5||||||
-6||||||
-7||||||
-8||||||
-9||||||
-10||||||
+1|Bourgogne|Bon vins pour le repas|42|1999|2|34.1|bourgogne.jpg
+2|Chateau La coste|Sympatique pour le palet|19|1980|2|82|chateau_la_coste.jpg
+3|Le COQ de Cambon|Vraiment pas ouf mais pas chère|20|2018|2|3|le-coq-de-cambon.jpg
+4|Beaujolais|P'tit beaujolais des familles|15|2015|2|25|beaujolais.jpg
+5|Arbois|Vins de la meilleurs région de France (Savoie)|13|2010|2|35|arbois.jpg
+6|||||||
+7|||||||
+8|||||||
+9|||||||
+10|||||||
