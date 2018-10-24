@@ -6,13 +6,13 @@ CREATE TABLE article (
 	categorie INTEGER,
 	prix REAL,
 	image TEXT,
-  nbStock INT,
-	FOREIGN KEY(categorie) REFERENCES categorie(id)
+	FOREIGN KEY(categorie) REFERENCES categorie(ref)
 );
 
 CREATE TABLE categorie (
 	ref INT PRIMARY KEY,
-	nom TEXT
+	nom TEXT,
+	image TEXT
 );
 
 CREATE TABLE client (

@@ -20,17 +20,7 @@
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
+include('../view/accueil.view.php');
 
 
 ?>
