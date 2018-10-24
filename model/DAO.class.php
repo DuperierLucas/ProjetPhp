@@ -80,6 +80,12 @@ class DAO {
 
     return $result;
   }
+  function getExiste(string $mail) : boolean{
+    $req = "SELECT * FROM client where mail=$mail";
+
+    $sth = $this->db->query($req);
+    return isset($sth);// a finir
+}
 
 }
 
