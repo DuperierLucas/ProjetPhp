@@ -6,6 +6,9 @@ include_once('../model/DAO.class.php');
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
+//Pour le header
+$categories = $dao->getCategories();
+
 $categorie = $_GET['categorie'];
 
 ////////////////////////////////////////////////////

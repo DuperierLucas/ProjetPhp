@@ -25,7 +25,7 @@ CREATE TABLE client (
   motDePasse TEXT
 );
 
-CREATE TABLE administrateur (
+CREATE TABLE gestionnaire (
   id INT PRIMARY KEY,
   nom TEXT,
   prenom TEXT,
