@@ -22,13 +22,13 @@ CREATE TABLE client (
   prenom TEXT,
   adresse TEXT,
   mail TEXT,
-  motDePasse TEXT,
-)
+  motDePasse TEXT
+);
 
 CREATE TABLE administrateur (
   id INT PRIMARY KEY,
   nom TEXT,
   prenom TEXT,
   mail TEXT,
-  motDePasse TEXT,
-)
+  motDePasse TEXT
+);
