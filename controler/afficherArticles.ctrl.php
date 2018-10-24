@@ -1,6 +1,6 @@
 <?php
 
-include_once("../model/DAO.class.php");
+include_once('../model/DAO.class.php');
 
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
@@ -15,13 +15,8 @@ include_once("../model/DAO.class.php");
 ///////////////////////////////////////////////////
 
 if ($categorie != 'tout') {
-  $articles = $dao->getArticle()
-}
-
-
-
-
-
+  $articles = $dao->getArticles($categorie);
+} else $articles = $dao->getAllArticles();
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE

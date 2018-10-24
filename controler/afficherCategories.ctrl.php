@@ -6,7 +6,7 @@ include_once("../model/DAO.class.php");
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
-$categories = $dao->getCategorie();
+$categories = $dao->getCategories();
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
