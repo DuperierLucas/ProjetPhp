@@ -8,10 +8,7 @@
   <?php require_once('../view/header.view.php'); ?>
 
   <section>
-    <?php foreach ($_COOKIE as $key) ?>
-    <!-- Chaque div représente un article -->
-    <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
-    <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">
+    <?php foreach ($_articles as $value) ?>
       <div>
         <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
         <!-- Nom du vin -->
@@ -24,7 +21,6 @@
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool?>% d'alcool</p>
       </div>
-    </a>
   <?php endforeach?>
 
 </body>
