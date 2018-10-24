@@ -5,31 +5,26 @@
     <title>Alcooliques&Anonymes - Accueil</title>
   </head>
   <body>
-      <header>
-        <article class="header">
-          <h1> <a href="">Alcooliques&Anonymes.com</a></h1>
-          <form action="" method="post">
-            <input type="text" name="recherche" value="Rechercher">
-          </form>
-          <ul>
-            <li> <a href="#"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li>
-            <li><a href="#"> <img src="../view/image/panier.jpg" alt="panier"> </a> </li>
-          </ul>
-        </article>
-
-        <nav class="nav">
-          <ul>
-            <li><a href="controler/afficherArticles.ctrl.php?categorie=tout">Tous Les Vins</a></li>
-
-            <?php foreach ($categories as $value) : ?>
-            <li><a href="controler/afficherArticles.ctrl.php?categorie=<?=$value->ref?>"><?=$value->nom?></a></li>
-            <?php endforeach ?>
-
-          </ul>
-        </nav>
-      </header>
+      <?php require_once 'header.view.php'; ?>
       <section>
-
+        <a href="#">
+          <div>
+            <img src="../view/image/verre_vin_rouge" alt="catégorie vins rouge">
+            <h2>Vins Rouges</h2>
+          </div>
+        </a>
+        <a href="#">
+          <div>
+            <img src="../view/image/verre_vin_rose" alt="catégorie vins rosés">
+            <h2>Vins Blancs</h2>
+          </div>
+        </a>
+        <a href="#">
+          <div>
+            <img src="../view/image/verre_vin_blanc" alt="catégorie vin blanc">
+            <h2>Vins Rosés</h2>
+          </div>
+        </a>
       </section>
   </body>
 </html>
