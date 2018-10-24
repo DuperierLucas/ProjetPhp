@@ -12,7 +12,7 @@
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
     <?php if (isset($commande) : ?>
     <p>Votre produit a été ajouté au panier</p>
-    <?php endif?>
+    <?php endif; ?>
 
     <section>
       <?php foreach ($articles as $value) : ?>
@@ -32,7 +32,7 @@
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
         </div>
       </a>
-    <?php endforeach ?>
+    <?php endforeach; ?>
 
     </section>
 
