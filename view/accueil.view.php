@@ -12,7 +12,7 @@
             <input type="text" name="recherche" value="Rechercher">
           </form>
           <ul>
-            <li> <a href="#"> <img src="moncompte.jpg" alt="mon compte" class="moncompte"> </a> </li>
+            <li> <a href="#"> <img src="moncompte.jpg" alt="mon compte" > </a> </li>
             <li><a href="#"> <img src="panier.jpg" alt="panier"> </a> </li>
           </ul>
         </article>
