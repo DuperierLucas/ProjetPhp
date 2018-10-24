@@ -12,7 +12,7 @@
             <input type="text" name="recherche" value="Rechercher">
           </form>
           <ul>
-            <li> <a href="#"> <img src="moncompte.jpg" alt="mon compte" class="moncompte"> </a> </li>
+            <li> <a href="#"> <img src="../view/moncompte.jpg" alt="mon compte" class="moncompte"> </a> </li>
             <li><a href="#"> <img src="panier.jpg" alt="panier"> </a> </li>
           </ul>
         </article>
@@ -20,9 +20,11 @@
         <nav class="nav">
           <ul>
             <li><a href="controler/afficherArticles.ctrl.php?categorie=tout">Tous Les Vins</a></li>
+
             <?php foreach ($categories as $value) : ?>
-            <li><a href="controler/afficherArticles.ctrl.php?categorie=<?=$value->ref ?>"><?=$value->nom?></a></li>
-          <?php endforeach ?>
+            <li><a href="controler/afficherArticles.ctrl.php?categorie=<?=$value->ref?>"><?=$value->nom?></a></li>
+            <?php endforeach ?>
+
           </ul>
         </nav>
       </header>
