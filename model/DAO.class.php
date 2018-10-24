@@ -12,7 +12,7 @@ class DAO {
   // L'objet local PDO de la base de donnée
   private $db;
   // Le type, le chemin et le nom de la base de donnée
-  private $database = 'sqlite:../data/db/alcooliques&anonymes.db';
+  private $database = 'sqlite:../data/db/AEtA.db';
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {

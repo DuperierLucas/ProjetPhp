@@ -21,14 +21,15 @@ CREATE TABLE client (
   nom TEXT,
   prenom TEXT,
   adresse TEXT,
+	telephone INT,
   mail TEXT,
-  motDePasse TEXT,
-)
+  motDePasse TEXT
+);
 
-CREATE TABLE administrateur (
+CREATE TABLE gestionnaire (
   id INT PRIMARY KEY,
   nom TEXT,
   prenom TEXT,
   mail TEXT,
-  motDePasse TEXT,
-)
+  motDePasse TEXT
+);
