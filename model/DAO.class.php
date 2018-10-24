@@ -25,7 +25,7 @@ class DAO {
   }
 
   //Recupère toutes les catégories
-  function getCategorie() : array {
+  function getCategories() : array {
     $req = "SELECT * FROM categorie";
 
     $sth = $this->db->query($req);
@@ -35,7 +35,7 @@ class DAO {
   }
 
   //Recupère les articles selon la catégorie
-  function getArticle(int $categorie) : array {
+  function getArticles(int $categorie) : array {
     $req = "SELECT * FROM article WHERE categorie='$categorie'";
 
     $sth = $this->db->query($req);
@@ -45,7 +45,7 @@ class DAO {
   }
 
   //Recupère tout les articles
-  function getAllArticle() : array {
+  function getAllArticles() : array {
     $req = "SELECT * FROM article";
 
     $sth = $this->db->query($req);
