@@ -5,6 +5,7 @@
     <title>Alcooliques&Anonymes - Articles</title>
   </head>
   <body>
-
+    <?php require_once('header.view.php'); ?>
+    
   </body>
 </html>
