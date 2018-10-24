@@ -8,6 +8,7 @@
     <?php require_once('../view/header.view.php'); ?>
     <!-- Une section contient l'ensemble des produit à afficher -->
     <section>
+      <?php foreach ($articles as $value) :?>
       <!-- Chaque div représente un article -->
       <a href="#">
         <div>
@@ -22,6 +23,7 @@
           <p>2010</p>
         </div>
       </a>
+    <?php endforeach ?>
 
     </section>
 
