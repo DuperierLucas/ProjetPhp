@@ -4,8 +4,8 @@
 ///////////////////////////////////////////////////
 $mdp=sha1($_POST['ajzt']);
 $mdp2=sha1($_POST['pdsf']);
-$mel=htmlspecialchars($_POST['mail']);
-$mel2=htmlspecialchars($_POST['mail2']);
+$mel=htmlspecialchars($_POST['mel1']);
+$mel2=htmlspecialchars($_POST['mel2']);
 
 
 
@@ -18,8 +18,9 @@ if($mel!=$mel2){
 } elseif ($mdp!=$mdp2) {
   $msgErreur = 'Vos mots de passe sont différents , réessayer !';
 }else {
-  // code...
+    include_once('../model/DAO.class.php');
 }
+
 
 $mauvaisMail = $mel!=$mel2;
 
@@ -30,7 +31,7 @@ $mauvaisMail = $mel!=$mel2;
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
-if ($msgErreur) {
+if (isset($msgErreur)) {
   include('../view/inscription.view.php');
 }
 
