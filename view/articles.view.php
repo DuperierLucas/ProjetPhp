@@ -10,15 +10,19 @@
     <section>
       <?php foreach ($articles as $value) :?>
       <!-- Chaque div représente un article -->
+      <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
       <a href="#">
         <div>
-          <img src="../view/image/vins/bourgogne.jpg.jpg" alt="bourgogne">
+          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->nom ?>">
           <!-- Nom du vin -->
-          <p>Bourgogne - Pinot Noir</p>
+          <p><?= $value->nom ?></p>
           <!-- Description du vin -->
-          <p>Vin rouge francais </p>
-          <!-- caractéristique -->
-          <p>3% d'alcool</p>
+          <p><?= $value->description?></p>
+          <!-- Caractéristiques -->
+          <!-- Annee -->
+          <p><?= $value->annee?></p>
+          <!-- Pourcentage alcool -->
+          <p><?= $value->pourcentageAlcool?>% d'alcool</p>
         </div>
       </a>
     <?php endforeach ?>
