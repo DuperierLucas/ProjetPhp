@@ -8,7 +8,7 @@
   <?php require_once('../view/header.view.php'); ?>
 
   <section>
-    <?php foreach ($_articles as $value) ?>
+    <?php foreach ($articles as $value) : ?>
       <div>
         <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
         <!-- Nom du vin -->

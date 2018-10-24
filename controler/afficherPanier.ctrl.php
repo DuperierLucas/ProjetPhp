@@ -5,6 +5,8 @@ include_once("../model/DAO.class.php");
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
+//Pour le header
+$categories = $dao->getCategories();
 
 $articles = array();
 
@@ -12,9 +14,8 @@ $articles = array();
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-foreach ($_COOKIE as $key) {
-  $ref = intval($key);
-  $article = $dao->getArticle($key);
+foreach ($_COOKIE as $key => $value) {
+  $article = $dao->getArticle((int)$key);
   array_push($articles, $article);
 }
 
