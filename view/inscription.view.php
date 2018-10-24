@@ -1,61 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <?php if(isset($msgErreur)) : ?>
-      <p><?php echo $msgErreur; ?></p>
+      <font color="red"><p><?php echo $msgErreur; ?></p></font>
     <?php endif ?>
 
-    <form action="afficherNewUser.ctrl.php" method="post">
-      <table class="formulaires">
-        <tr>
-          <td>Quel est votre nom ?</td>
-          <td><input type="text" name="nom" size="10"></td>
-        </tr>
-        <tr>
+    <form action="../controler/afficherNewUser.ctrl.php" method="post">
+      <fieldset>
+        <legend>Formulaire d'inscription</legend>
 
-          <td>Quel est votre prenom ?</td>
-          <td><input type="text" name="prenom" size="75"></td>
-        </tr>
+          <label for="nom">Nom :</label>
+          <input type="text" name="nm" size="10" id="nom"  required/>
+          </br>
 
-        <tr>
-          <td>Quelle est votre addresse Email ?</td>
-          <td><input type="Email" name="mail" size="100"></td>
-        </tr>
+          <label for="prenom">Prenom ?</label>
+          <input type="text" name="pr" size="75" id="prenom" required/>
+          </br>
 
-        <tr>
-          <td>Vérification de votre addresse Email :</td>
-          <td><input type="Email" name="mail2" size="100"></td>
-        </tr>
+          <label for="mail">Quelle est votre addresse Email ?</label>
+          <input type="Email" name="mel1" size="100" id="mail" required/>
+          </br>
 
-        <tr>
-          <td>Entrer un mot de passe :</td>
-          <td><input type="password" name="ajzt" size="100"></td>
-        </tr>
+          <label for="mail2">Vérification de votre addresse Email :</label>
+          <input type="Email" name="mel" size="100" id="mail2" required/>
+          </br>
 
-        <tr>
-          <td>Vérification de votre mot de passe :</td>
-          <td><input type="password" name="pdsf" size="100"></td>
-        </tr>
+          <label for="mdp">Entrer un mot de passe :</label>
+          <input type="password" name="ajzt" size="100" id="mdp" required/>
+          </br>
 
-        <tr>
-          <td>Quelle est votre addresse ? (ex : 300 rue des champs)</td>
-          <td><input type="text" name="adresse" size="100"></td>
-        </tr>
+          <label for="mdp2">Vérification de votre mot de passe :</label>
+          <input type="password" name="pdsf" size="100" id="mdp2" required/>
+          </br>
 
-        <tr>
-          <td>Quelle est votre numéro de téléphone ?</td>
-          <td><input type="integer" name="tel" size="10"></td>
-        </tr>
+          <label for="adresse">Quelle est votre addresse ? (ex : 300 rue des champs)</label>
+          <input type="text" name="adr" size="100" id="adresse" required/>
+          </br>
 
-        <tr>
-          <td colspan=2><input type="submit" value="Inscriptions"></td>
-        </tr>
+          <label for="téléphone">Quelle est votre numéro de téléphone ?</label>
+          <input type="integer" name="tel" size="10" id="téléphone" required/>
+          </br>
 
-      </table>
+      </fieldset>
+
+      <p>
+          <input type="submit" value="Inscriptions"/>
+          <input type="reset"  value="Supprimer"/> </p>
+
     </form>
     <font color="red">Tous les champs doivent être complétés !</font>
   </body>

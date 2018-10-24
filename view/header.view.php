@@ -5,7 +5,7 @@
             <input type="text" name="recherche" value="Rechercher">
           </form>
           <ul>
-            <li> <a href="<?php//../controler/afficherCompte.ctrl.php?>../view/inscription.view.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li>
+            <li> <a href="../view/inscription.view.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li><?php//../controler/afficherCompte.ctrl.php?>
             <li><a href="../controler/afficherPanier.ctrl.php"> <img src="../view/image/panier.jpg" alt="panier"> </a> </li>
           </ul>
         </article>

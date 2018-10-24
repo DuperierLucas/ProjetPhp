@@ -63,6 +63,23 @@ class DAO {
 
     return $result;
   }
+  function getClient(string $mail) : array {
+    $req = "SELECT * FROM client where mail=$mail";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+
+    return $result;
+  }
+
+  function getAllClients() : array {
+    $req = "SELECT * FROM client";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+
+    return $result;
+  }
 
 }
 
