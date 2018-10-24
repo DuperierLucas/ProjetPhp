@@ -1,5 +1,6 @@
 CREATE TABLE article (
-	libelle TEXT PRIMARY KEY,
+	ref INT PRIMARY KEY,
+	libelle TEXT,
   description TEXT,
   caracteristique TEXT,
 	categorie INTEGER,
@@ -10,7 +11,8 @@ CREATE TABLE article (
 );
 
 CREATE TABLE categorie (
-	nom TEXT PRIMARY KEY,
+	ref INT PRIMARY KEY,
+	nom TEXT
 );
 
 CREATE TABLE client (
@@ -31,20 +33,20 @@ CREATE TABLE administrateur (
 )
 
 CREATE TABLE achat (
-  libelleArticle TEXT,
+  ref INT,
   id INT,
   nbArticle INT,
 	etatLivraison TEXT check (etatLivraison = "A FAIRE" ou etatLivraison = "EN COURS" ou etatLivraison = "LIVRÉ"),
-  PRIMARY KEY(libelleArticle, id),
-  FOREIGN KEY(libelleArticle) REFERENCES article(libelle),
+  PRIMARY KEY(ref, id),
+  FOREIGN KEY(ref) REFERENCES article(ref),
   FOREIGN KEY(id) REFERENCES client(id)
 )
 
 CREATE TABLE panier (
-  libelleArticle TEXT,
+  ref INT,
   id INT,
   nbArticle INT,
-  PRIMARY KEY(libelleArticle, id),
-  FOREIGN KEY(libelleArticle) REFERENCES article(libelle),
+  PRIMARY KEY(ref, id),
+  FOREIGN KEY(ref) REFERENCES article(ref),
   FOREIGN KEY(id) REFERENCES client(id)
 )
