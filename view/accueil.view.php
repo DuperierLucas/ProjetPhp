@@ -11,12 +11,12 @@
         <?php foreach ($categories as $value) :?>
         <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $value->ref ?>">
           <div>
-            <img src="../view/image/<?= $value->image?>" alt="<?= $value->nom ?>">
+            <img src="../view/image/vins/<?= $value->image?>" alt="<?= $value->nom ?>">
             <h2><?= $value->nom ?></h2>
           </div>
         </a>
       <?php endforeach ?>
-      
+
       </section>
   </body>
 </html>
