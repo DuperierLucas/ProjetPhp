@@ -15,7 +15,7 @@
     <?php endif?>
 
     <section>
-      <?php foreach ($articles as $value) :?>
+      <?php foreach ($articles as $value) : ?>
       <!-- Chaque div représente un article -->
       <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
       <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">

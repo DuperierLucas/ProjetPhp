@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////
 
 foreach ($_COOKIE as $key) {
-  //Creer l'articles
+  $article = $dao->getArticle($key);
   //l'ajouter a $articles
 }
 
