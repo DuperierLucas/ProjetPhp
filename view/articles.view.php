@@ -13,18 +13,21 @@
     <?php if(isset($commande)) : ?>
     <p class="panier">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
-    
+
     <!-- Si aucun article ne correspond à la recherche on affiche un message -->
     <?php if($articles == null): ?>
       <p class="noResult">Aucun article ne correspond à votre recherche</p>
     <?php endif; ?>
 
+
+    <?php if(isset($prev)): ?>
     <section class="fleches">
       <!-- Affiche la flèche de gauche -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
       <!-- Affiche la flèche de droite -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
     </section>
+    <?php endif; ?>
 
 
     <section>
@@ -53,12 +56,13 @@
 
     </section>
 
+  <?php if(isset($prev)): ?>
     <section class="fleches">
       <!-- Affiche la flèche de gauche -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
       <!-- Affiche la flèche de droite -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
     </section>
-
+  <?php endif; ?>
   </body>
 </html>
