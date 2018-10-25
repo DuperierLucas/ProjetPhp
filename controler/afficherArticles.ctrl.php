@@ -23,6 +23,8 @@ $articles = array();
 
 //Definition de $articles selon ref et categorie
 if ($categorie == "tout" && isset($_GET['ref'])) {
+  //S'il y a une ref et une catégorie
+  $ref = $_GET['ref'];
   //S'il y a une ref on récupere les n articles peut importe la catégorie
   $articles = $dao->getN($ref, $n);
 } else if ($categorie == "tout" && !(isset($_GET['ref']))) {
