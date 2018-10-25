@@ -50,15 +50,9 @@ if (isset($_GET['article'])) {
 
 // ref de article suivant sinon garde les mêmes articles
 $nextRef = $dao->next(end($articles)->ref);
-if ($nextRef == end($articles)->ref) {
-  $nextRef = $articles[0]->ref;
-}
 
 // Les articles précédents sinon garde les mêmes articles
 $prev = $dao->prevN($articles[0]->ref,$n);
-if (empty($prev)) {
-  $prev = $articles;
-}
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
