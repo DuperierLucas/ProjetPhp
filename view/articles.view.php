@@ -13,6 +13,9 @@
     <?php if(isset($commande)) : ?>
     <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
+    <?php if($articles == null): ?>
+      <p>Aucun article ne correspond à votre recherche</p>
+    <?php endif; ?>
 
     <!-- Affiche la flèche de gauche -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
