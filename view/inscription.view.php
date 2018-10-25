@@ -2,7 +2,8 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Alcooliques&Anonymes - Inscription</title>
+    <link rel="stylesheet" href="../view/stylesheet.css">
   </head>
   <body>
     <?php if(isset($msgErreur)) : ?>
