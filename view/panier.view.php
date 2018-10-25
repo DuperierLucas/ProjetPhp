@@ -14,6 +14,9 @@
         <article>
           <img src="../view/image/vins/<?= $key->image ?>" alt="<?= $key->libelle?>">
           <!-- Prix -->
+          <h4><?= $value->prix?> €</h4>
+          <!-- Supprimer l'article -->
+          <input type="submit" name="supprimer" value="Supprimer">
           <h4><?= $key->prix?> €</h4>
         </article>
         <!-- Nom du vin -->
