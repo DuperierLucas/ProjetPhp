@@ -1,8 +1,8 @@
       <header>
         <article class="header">
           <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
-          <form action="" method="post">
-            <input type="text" name="recherche" value="Rechercher">
+          <form action="afficherResultatRecherche.ctrl.php" method="get">
+            <input type="text" name="recherche" placeholder="Rechercher">
           </form>
           <ul>
             <li> <a href="../controler/afficherCompte.ctrl.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li>
