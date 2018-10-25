@@ -22,7 +22,7 @@
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool?>% d'alcool</p>
         <!-- Prix -->
-          <p><?= $value->prix?>% d'alcool</p>
+          <p><?= $value->prix?> €/p>
       </div>
   <?php endforeach?>
 
