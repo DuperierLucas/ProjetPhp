@@ -3,7 +3,7 @@
           <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
 
           <form action="afficherResultatRecherche.ctrl.php" method="get">
-            <input type="text" name="recherche" placeholder="Rechercher">
+            <input type="text" name="recherche" placeholder="Rechercher un vin">
           </form>
           <ul>
             <li> <a href="../view/inscription.view.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li><?php//../controler/afficherCompte.ctrl.php?>

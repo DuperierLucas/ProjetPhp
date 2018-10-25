@@ -11,22 +11,24 @@
 
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
     <?php if(isset($commande)) : ?>
-    <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
-  <?php endif; ?>
+    <p class="panier">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
+    <?php endif; ?>
+    <!-- Si aucun article ne correspond à la recherche on affiche un message -->
+    <?php if($articles == null): ?>
+      <p class="noResult">Aucun article ne correspond à votre recherche</p>
+    <?php endif; ?>
 
-  <?php if($articles == null) : ?>
-    <p>Aucun article ne correspond à votre recherche</p>
-  <?php endif; ?>
+    <section class="fleches">
+      <?php if(!(empty($prev))) : ?>
+      <!-- Affiche la flèche de gauche -->
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
+      <?php endif; ?>
 
-  <?php if(!(empty($prev))) : ?>
-    <!-- Affiche la flèche de gauche -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>">&lt; </a>
-  <?php endif; ?>
-
-  <?php if(!($nextRef == end($articles)->ref)) : ?>
-    <!-- Affiche la flèche de droite -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
-  <?php endif; ?>
+      <?php if(!($nextRef == end($articles)->ref)) : ?>
+      <!-- Affiche la flèche de droite -->
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
+      <?php endif; ?>
+    </section>
 
 
     <section>
@@ -35,7 +37,11 @@
       <!-- lorsque clique sur le lien ajoute au panier -->
       <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">
         <div>
-          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
+          <article>
+            <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
+            <!-- Prix -->
+            <h4><?= $value->prix?> €</h4>
+          </article>
           <!-- Nom du vin -->
           <h3><?= $value->libelle ?></h3>
           <!-- Description du vin -->
@@ -45,23 +51,23 @@
           <p><?= $value->annee?></p>
           <!-- Pourcentage alcool -->
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
-          <!-- Prix -->
-          <p><?= $value->prix?> €</p>
         </div>
       </a>
     <?php endforeach ?>
 
     </section>
 
-    <?php if(!(empty($prev))) : ?>
+    <section class="fleches">
+      <?php if(!(empty($prev))) : ?>
       <!-- Affiche la flèche de gauche -->
-      <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>">&lt; </a>
-    <?php endif; ?>
-
-    <?php if(!($nextRef == end($articles)->ref)) : ?>
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
+      <?php endif; ?>
+      
+      <?php if(!($nextRef == end($articles)->ref)) : ?>
       <!-- Affiche la flèche de droite -->
-      <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
-    <?php endif; ?>
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
+      <?php endif; ?>
+    </section>
 
   </body>
 </html>

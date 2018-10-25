@@ -18,7 +18,7 @@ if (isset($_GET['article'])) {
   setcookie($_GET['article'], "commande");
   $commande = true;
 }
-$categorie = 1;
+$categorie = 'tout';
 
 $recherche = $_GET['recherche'];
 ////////////////////////////////////////////////////
