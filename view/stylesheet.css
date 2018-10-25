@@ -126,3 +126,7 @@ h4{
   font-weight: bold;
   font-size: 2.1em;
 }
+section div article input{
+  height: 40px;
+  margin : 10px;
+}
