@@ -15,7 +15,6 @@
         <p><?= $value->libelle ?></p>
         <!-- Description du vin -->
         <p><?= $value->description?></p>
-        <!-- Caractéristiques -->
         <!-- Annee -->
         <p><?= $value->annee?></p>
         <!-- Pourcentage alcool -->
