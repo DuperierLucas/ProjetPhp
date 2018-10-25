@@ -17,17 +17,12 @@ if (isset($_GET['article'])) {
 }
 $categorie = 1;
 
+$recherche = $_GET['recherche'];
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-
-$recherche = $_GET['recherche'];
-
 $articles = $dao->getResRecherche($recherche);
-
-
-
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
