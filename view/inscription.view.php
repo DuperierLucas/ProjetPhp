@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../view/stylesheet.css">
   </head>
   <body>
+    <?php require_once('../view/header.view.php'); ?>
+    
     <?php if(isset($msgErreur)) : ?>
       <font color="red"><p><?php echo $msgErreur; ?></p></font>
     <?php endif ?>
@@ -49,10 +51,9 @@
       </fieldset>
 
       <p>
-          <input type="submit" value="Inscription"/>
+          <input type="submit" value="Valider"/>
           <input type="reset"  value="Supprimer"/> </p>
 
     </form>
-    <font color="red">Tous les champs doivent être complétés !</font>
   </body>
 </html>

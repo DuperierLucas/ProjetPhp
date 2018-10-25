@@ -6,16 +6,28 @@ include_once("../model/DAO.class.php");
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
+//Pour le header
+$categories = $dao->getCategories();
+
+$mail = $_POST['mail'];
+$mdp = $_POST['ajzt'];
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
+$client = $dao->connexion($mail, $mdp);
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/connexion.view.php');
+if (isset($client)) {
+  include('../view/compte.view.php');
+} else {
+  $msgErreur = 'e-mail ou mot de passe incorrect';
+  include('../view/connexion.view.php');
+}
+
 
 ?>

@@ -6,6 +6,9 @@ include_once("../model/DAO.class.php");
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
+//Pour le header
+$categories = $dao->getCategories();
+
 //shal permet d'encoder les mots de passes
 $mdp = sha1($_POST['ajzt']);
 $mdp2 = sha1($_POST['pdsf']);

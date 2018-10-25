@@ -6,6 +6,6 @@
     <link rel="stylesheet" href="../view/stylesheet.css">
   </head>
   <body>
-
+    
   </body>
 </html>

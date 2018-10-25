@@ -5,6 +5,15 @@
     <title>Anonymes&Alcooliques - Mon compte</title>
   </head>
   <body>
+    <?php require_once('../view/header.view.php'); ?>
+
+    <?php if(isset($client)) : ?>
+      <!-- affichage du client -->
+
+    <?php else : ?>
+      <!-- affichage d'un bouton "se connecter" -->
+
+    <?php endif; ?>
 
   </body>
 </html>
