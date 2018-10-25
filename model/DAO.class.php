@@ -77,6 +77,17 @@ function getN(int $ref,int $n) : array {
     return $result;
   }
 
+  // Acces au n articles à partir de la reférence $ref
+  // Retourne une table d'objets de la classe Article
+  function getCateg(int $n, string $categorie) : array {
+    $req = "SELECT * FROM article WHERE '$categorie' = categorie ORDER BY ref LIMIT $n";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+    return $result;
+  }
+
   //Recupère tout les articles
   function getAllArticles() : array {
     $req = "SELECT * FROM article";
@@ -85,6 +96,16 @@ function getN(int $ref,int $n) : array {
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
     return $result;
+  }
+
+  //Recupère tout les articles
+  function getArticle($ref) : Article {
+    $req = "SELECT * FROM article WHERE $ref=ref";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+    return $result[0];
   }
 
   // Acces à la référence qui suit la référence $ref dans l'ordre des références

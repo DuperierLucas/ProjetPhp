@@ -16,21 +16,26 @@ $categories = $dao->getCategories();
 $categorie = $_GET['categorie'];
 
 $articles = array();
+
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
 //Definition de $articles selon ref et categorie
-if (isset($_GET['ref'])) {
-  $ref = $_GET['ref'];
-
-  if ($categorie != "tout") {
-    //On récupère les articles lié à la catégorie choisie
-    $articles = $dao->getNCateg($ref,$n,$categorie);
-  } else $articles = $dao->getN($ref, $n);
-  //Sinon on récupère tout les articles
-} else {
+if ($categorie == "tout" && isset($_GET['ref']) {
+  //S'il y a une ref on récupere les n articles peut importe la catégorie
+  $articles = $dao->getN($ref, $n);
+} else if ($categorie == "tout" && !(isset($_GET['ref'])) {
+  //S'il n'y a pas de ref on récupère les n premier articles peut importe la catégorie
   $articles = $dao->firstN($n);
+} else if ($categorie != "tout" && isset($_GET['ref']) {
+  //S'il y a une ref et une catégorie
+  $ref = $_GET['ref'];
+  //On récupère les articles lié à la catégorie choisie
+  $articles = $dao->getNCateg($ref,$n,$categorie);
+} else {
+  //S'il y a une catégorie mais pas de ref
+  $articles = $dao->getCateg($n, $categorie);
 }
 
 if (isset($_GET['article'])) {
