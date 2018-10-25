@@ -98,8 +98,8 @@ function getN(int $ref,int $n) : array {
     return $result;
   }
 
-<<<<<<< HEAD
-  //Recupère tout les articles
+
+  //Recupère l'article selon la ref
   function getArticle($ref) : Article {
     $req = "SELECT * FROM article WHERE $ref=ref";
 
@@ -107,7 +107,7 @@ function getN(int $ref,int $n) : array {
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
     return $result[0];
-=======
+
 
   //Récupère les résultats d'une recherche
   function getResRecherche($recherche) : array{
@@ -116,7 +116,7 @@ function getN(int $ref,int $n) : array {
           $result = $sth->fetchAll(PDO::FETCH_CLASS,'Article');
           return $result;
         }
->>>>>>> 5c259adf63e384965132aafb16f1106a53ad46e7
+
   }
 
   // Acces à la référence qui suit la référence $ref dans l'ordre des références
