@@ -19,6 +19,9 @@ if($mel!=$mel2){
   $msgErreur = 'Vos mots de passe sont différents , réessayer !';
 }else {
     include_once('../model/DAO.class.php');
+    if ($dao->getClient($_POST['mel1'] == NULL)){// Vérifie que le client qui a l'adresse mel1 existe dans la bd
+      echo'Ok'; // a finir et utiliser la methode is existe pour la condition au dessus + connexion auto ( include a afficher connexion.ctrl et la faire)
+    }
 }
 
 
