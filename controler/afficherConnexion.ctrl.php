@@ -13,7 +13,7 @@ if (isset($_POST['mail'])) {
   $mail = $_POST['mail'];
 }
 
-if(isset($_POST['ajzt'])) {
+if (isset($_POST['ajzt'])) {
   $mdp = $_POST['ajzt'];
 }
 
@@ -21,9 +21,16 @@ if(isset($_POST['ajzt'])) {
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-if(isset($mail) && isset($mdp)){
-  $client = $dao->connexion($mail, $mdp);
+if(isset($mail) && isset($mdp)) {
+  if($dao->connexion($mail, $mdp)) {
+    $client = $dao->getClientMail($mail);
+  }
 }
+
+if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
+  $msgErreur = 'E-mail ou mot de passe incorrect';
+}
+
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
@@ -32,7 +39,6 @@ if(isset($mail) && isset($mdp)){
 if (isset($client)) {
   include('../view/compte.view.php');
 } else {
-  $msgErreur = 'E-mail ou mot de passe incorrect';
   include('../view/connexion.view.php');
 }
 

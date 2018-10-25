@@ -10,6 +10,8 @@ $categories = $dao->getCategories();
 
 $articles = array();
 
+$valider = isset($_GET['action']);
+
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
@@ -20,6 +22,15 @@ if(isset($_GET['article'])) {
   $article = $_GET['article'];
   //On supprime l'article des cookies
   unset($_COOKIE[$article->ref]);
+}
+
+//Si $valider est vrai selon signifie que l'utilisateur ...
+// ... a validé son panier ET été connecté
+if($valider) {
+  foreach($_COOKIE as $key){
+   // Suppression du cookie
+   unset($_COOKIE[$key]);
+ }
 }
 
 //Création tableau d'article venant des cookie enregistrés
@@ -38,6 +49,9 @@ foreach ($articles as $value) {
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
+
+//Le client est connecté
+$connecte = isset($_GET['id']);
 
 include('../view/panier.view.php');
 

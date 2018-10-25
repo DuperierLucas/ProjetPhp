@@ -27,7 +27,7 @@
   </fieldset>
 
   <p>
-    <input type="submit" value="Inscription"/>
+    <input type="submit" value="Se connecter"/>
     <input type="reset"  value="Supprimer"/> </p>
 
   </form>

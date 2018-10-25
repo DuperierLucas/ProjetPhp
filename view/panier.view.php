@@ -27,12 +27,16 @@
   <?php endforeach?>
 
   <?php if(isset($articles)) : ?>
-  <div>
-    <p>Prix Total : <?= $prixTotal ?> €</p>
-  </div>
+    <div>
+      <p>Prix Total : <?= $prixTotal ?> €</p>
+    </div>
 
-  <!-- A FAIRE : créer un bouton Valider qui appelle "../controler/afficherConnexion.ctrl.php" -->
-  <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
+    <?php if($connecte) :?>
+      <a href="../controler/afficherPanier.ctrl.php?action=valider">Valider</a>
+    <?php else :?>
+      <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
+    <?php endif; ?>
+    <!-- A FAIRE : créer un bouton Valider plutot que des a-->
   <?php endif; ?>
 
 </body>

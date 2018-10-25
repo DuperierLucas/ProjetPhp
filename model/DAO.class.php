@@ -172,8 +172,17 @@ class DAO {
     //// POUR LES CLIENTS
     ///////////////////////////////////////////////////
 
-    function getClient(string $id) : array {
+    function getClientID(string $id) : array {
       $req = "SELECT * FROM client WHERE id=$id";
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+
+      return $result;
+    }
+
+    function getClientMail(string $mail) : array {
+      $req = "SELECT * FROM client WHERE mail=$mail";
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
@@ -201,11 +210,11 @@ class DAO {
     }
 
     function getId() : int {
-      $req = "SELECT max(id) FROM client";
+      $req = "SELECT max(id)+1 FROM client";
 
       $sth = $this->db->query($req);
 
-      return $sth[0]+1;
+      return $sth[0];
     }
 
     function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp) {
@@ -213,13 +222,12 @@ class DAO {
       $sth = $this->db->exec($req);
     }
 
-    function connexion($mail, $motDePasse) : Client {
+    function connexion($mail, $motDePasse) : boolean {
       $req = "SELECT * FROM client WHERE $mail=mail and $motDePasse=motDePasse";
 
       $sth = $this->db->query($req);
-      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
-      return $result[0];
+      return isset($sth);
     }
 
 
