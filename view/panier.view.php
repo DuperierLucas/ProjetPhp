@@ -29,7 +29,9 @@
   <div>
     <p>Prix Total : <?= $prixTotal ?> €</p>
   </div>
-<?php endif; ?>
+  
+  <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
+  <?php endif; ?>
 
 </body>
 </html>
