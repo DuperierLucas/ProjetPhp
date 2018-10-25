@@ -11,11 +11,11 @@
     <!-- Affichage du client -->
     <fieldset>
       <legend>Votre compte</legend>
-      <p>Nom : <?php echo $client->nom ?></p>
-      <p>Prénom : <?php echo $client->prenom ?></p>
-      <p>Adresse : <?php echo $client->adresse ?></p>
-      <p>Téléphone : <?php echo $client->telephone ?></p>
-      <p>Mail : <?php echo $client->mail ?></p>
+      <p>Nom : <?= $client->nom ?></p>
+      <p>Prénom : <?= $client->prenom ?></p>
+      <p>Adresse : <?= $client->adresse ?></p>
+      <p>Téléphone : <?= $client->telephone ?></p>
+      <p>E-mail : <?= $client->mail ?></p>
     </fieldset>
 
   </body>
