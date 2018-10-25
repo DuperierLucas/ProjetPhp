@@ -22,6 +22,8 @@ if(isset($_GET['id'])) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/compte.view.php')
+if(isset($client)) {
+  include('../view/compte.view.php')
+} else include('../view/connexion.php');
 
 ?>
