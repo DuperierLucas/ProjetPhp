@@ -58,7 +58,7 @@ class DAO {
   // Cette méthode retourne un tableau contenant n  articles de
   // la base sous la forme d'objets de la classe Article.
   function getN(int $ref,int $n) : array {
-    $req = "SELECT * FROM article WHERE '$ref' <= ref ORDER BY ref LIMIT '$n' ";
+    $req = "SELECT * FROM article WHERE $ref <= ref ORDER BY ref LIMIT $n ";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -66,10 +66,10 @@ class DAO {
     return $result;
   }
 
-  // Acces au n articles à partir de la reférence $ref
+  // Acces au n articles à partir de la reférence $ref et de la categorie $categorie
   // Retourne une table d'objets de la classe Article
   function getNCateg(int $ref,int $n,string $categorie) : array {
-    $req = "SELECT * FROM article WHERE '$ref' = ref and '$categorie' = categorie ORDER BY ref LIMIT $n";
+    $req = "SELECT * FROM article WHERE $ref <= ref and $categorie = categorie ORDER BY ref LIMIT $n";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -80,7 +80,7 @@ class DAO {
   // Acces au n articles à partir de la reférence $ref
   // Retourne une table d'objets de la classe Article
   function getCateg(int $n, string $categorie) : array {
-    $req = "SELECT * FROM article WHERE '$categorie' = categorie ORDER BY ref LIMIT $n";
+    $req = "SELECT * FROM article WHERE $categorie = categorie ORDER BY ref LIMIT $n";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');

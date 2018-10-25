@@ -12,7 +12,7 @@ $n = 8;
 //Pour le header
 $categories = $dao->getCategories();
 
-//On récupère la catégorie choisit
+//On récupère la catégorie choisie
 $categorie = $_GET['categorie'];
 
 $articles = array();
