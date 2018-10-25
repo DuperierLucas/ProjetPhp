@@ -24,6 +24,10 @@ class DAO {
     }
   }
 
+////////////////////////////////////////////////////
+//// POUR LES CATEGORIES
+///////////////////////////////////////////////////
+
   //Recupère toutes les catégories
   function getCategories() : array {
     $req = "SELECT * FROM categorie";
@@ -33,6 +37,10 @@ class DAO {
 
     return $result;
   }
+
+////////////////////////////////////////////////////
+//// POUR LES ARTICLES
+///////////////////////////////////////////////////
 
   //Recupère l'article selon la référence
   function getArticle(int $ref) : Article {
@@ -44,9 +52,9 @@ class DAO {
     return $result[0];
   }
 
-  //Recupère les articles selon la catégorie
-  function getArticles(int $categorie) : array {
-    $req = "SELECT * FROM article WHERE categorie=$categorie";
+  //Recupère les n premiers articles selon la catégorie
+  function getArticles(int $categorie, int $n) : array {
+    $req = "SELECT * FROM article WHERE categorie=$categorie LIMIT $n";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -63,8 +71,37 @@ class DAO {
 
     return $result;
   }
+
+  // Acces à la référence qui suit la référence $ref dans l'ordre des références
+  function next(int $ref) : int {
+    $req = "SELECT * FROM article WHERE '$ref' < ref LIMIT 1 ";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+    if (empty($result)) {
+      return $ref;
+    } else return $result[0]->ref;
+  }
+
+  // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
+  function prevN(int $ref,int $n): array {
+    $req = "SELECT * FROM article WHERE ref in
+    (SELECT ref FROM article WHERE '$ref' > ref ORDER BY ref DESC LIMIT '$n')
+    ORDER BY ref";
+
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+    return $result;
+  }
+
+////////////////////////////////////////////////////
+//// POUR LES CLIENTS
+///////////////////////////////////////////////////
+
   function getClient(string $mail) : array {
-    $req = "SELECT * FROM client where mail=$mail";
+    $req = "SELECT * FROM client WHERE mail=$mail";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
