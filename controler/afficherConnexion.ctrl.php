@@ -9,14 +9,21 @@ include_once("../model/DAO.class.php");
 //Pour le header
 $categories = $dao->getCategories();
 
-$mail = $_POST['mail'];
-$mdp = $_POST['ajzt'];
+if (isset($_POST['mail'])) {
+  $mail = $_POST['mail'];
+}
+
+if(isset($_POST['ajzt'])) {
+  $mdp = $_POST['ajzt'];
+}
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-$client = $dao->connexion($mail, $mdp);
+if(isset($mail) && isset($mdp)){
+  $client = $dao->connexion($mail, $mdp);
+}
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
@@ -25,7 +32,7 @@ $client = $dao->connexion($mail, $mdp);
 if (isset($client)) {
   include('../view/compte.view.php');
 } else {
-  $msgErreur = 'e-mail ou mot de passe incorrect';
+  $msgErreur = 'E-mail ou mot de passe incorrect';
   include('../view/connexion.view.php');
 }
 

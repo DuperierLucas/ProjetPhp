@@ -11,7 +11,7 @@
       <!-- affichage du client -->
 
     <?php else : ?>
-      <!-- affichage d'un bouton "se connecter" -->
+      <!-- affichage d'un bouton "se connecter" qui envoie a '../controler/afficherConnexion.ctrl.php' -->
 
     <?php endif; ?>
 

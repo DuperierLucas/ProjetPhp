@@ -6,7 +6,13 @@ include_once("../model/DAO.class.php");
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
 
-$client = $_GET['id'];
+//Pour le header
+$categories = $dao->getCategories();
+
+if(isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $client = $dao->getClient($id);
+}
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS

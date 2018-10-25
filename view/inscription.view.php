@@ -7,9 +7,9 @@
   </head>
   <body>
     <?php require_once('../view/header.view.php'); ?>
-    
+
     <?php if(isset($msgErreur)) : ?>
-      <font color="red"><p><?php echo $msgErreur; ?></p></font>
+      <font color="red"><p><?= $msgErreur ?></p></font>
     <?php endif ?>
 
     <form action="../controler/afficherNewUser.ctrl.php" method="post">
