@@ -1,7 +1,8 @@
       <header>
         <article class="header">
           <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
-          <form action="" method="post">
+
+          <form action="afficherResultatRecherche.ctrl.php" method="get">
             <input type="text" name="recherche" placeholder="Rechercher">
           </form>
           <ul>
