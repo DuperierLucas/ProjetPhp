@@ -31,7 +31,6 @@ if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
   $msgErreur = 'E-mail ou mot de passe incorrect';
 }
 
-
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
