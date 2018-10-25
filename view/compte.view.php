@@ -8,7 +8,6 @@
   <body>
     <?php require_once('../view/header.view.php'); ?>
 
-    <?php if(isset($client)) : ?>
       <!-- affichage du client -->
     <fieldset>
       <legend>Votre compte</legend>
@@ -19,10 +18,7 @@
       <p>Mail : <?php echo $client->mail ?></p>
     </fieldset>
 
-    <?php else : ?>
-      <!-- affichage d'un bouton "se connecter" qui envoie a '../controler/afficherConnexion.ctrl.php' -->
 
-    <?php endif; ?>
 
   </body>
 </html>
