@@ -9,22 +9,22 @@
   <?php require_once('../view/header.view.php'); ?>
 
   <section>
-    <?php foreach ($articles as $value) : ?>
+    <?php foreach ($articles as $key => $value) : ?>
       <div>
         <article>
-          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
+          <img src="../view/image/vins/<?= $key->image ?>" alt="<?= $key->libelle?>">
           <!-- Prix -->
-          <h4><?= $value->prix?> €</h4>
+          <h4><?= $key->prix?> €</h4>
         </article>
         <!-- Nom du vin -->
-        <h3><?= $value->libelle ?></h3>
+        <h3><?= $key->libelle ?></h3>
         <!-- Description du vin -->
-        <p><?= $value->description?></p>
+        <p><?= $key->description?></p>
         <!-- Caractéristiques -->
         <!-- Annee -->
-        <p><?= $value->annee?></p>
+        <p><?= $key->annee?></p>
         <!-- Pourcentage alcool -->
-        <p><?= $value->pourcentageAlcool?>% d'alcool</p>
+        <p><?= $key->pourcentageAlcool?>% d'alcool</p>
       </div>
       <!-- A FAIRE : créer un bouton x pour supprimer l'article -->
   <?php endforeach?>
