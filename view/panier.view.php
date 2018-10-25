@@ -11,17 +11,20 @@
   <section>
     <?php foreach ($articles as $value) : ?>
       <div>
-        <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
+        <article>
+          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
+          <!-- Prix -->
+          <h4><?= $value->prix?> €</h4>
+        </article>
         <!-- Nom du vin -->
-        <p><?= $value->libelle ?></p>
+        <h3><?= $value->libelle ?></h3>
         <!-- Description du vin -->
         <p><?= $value->description?></p>
+        <!-- Caractéristiques -->
         <!-- Annee -->
         <p><?= $value->annee?></p>
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool?>% d'alcool</p>
-        <!-- Prix -->
-        <p><?= $value->prix?> € </p>
       </div>
       <!-- A FAIRE : créer un bouton x pour supprimer l'article -->
   <?php endforeach?>
