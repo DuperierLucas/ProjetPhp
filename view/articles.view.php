@@ -17,7 +17,7 @@
     <!-- Affiche la flèche de gauche -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
     <!-- Affiche la flèche de droite -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $next.'&categorie='.$categorie?>"> ></a>
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
 
     <section>
       <?php foreach ($articles as $value) : ?>
@@ -40,6 +40,11 @@
     <?php endforeach ?>
 
     </section>
+    
+    <!-- Affiche la flèche de gauche -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
+    <!-- Affiche la flèche de droite -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
 
   </body>
 </html>
