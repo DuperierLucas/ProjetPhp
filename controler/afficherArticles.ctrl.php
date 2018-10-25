@@ -15,9 +15,23 @@ $categories = $dao->getCategories();
 //On récupère la catégorie choisit
 $categorie = $_GET['categorie'];
 
+$articles = array();
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
+
+//Definition de $articles selon ref et categorie
+if (isset($_GET['ref'])) {
+  $ref = $_GET['ref'];
+
+  if ($categorie != "tout") {
+    //On récupère les articles lié à la catégorie choisie
+    $articles = $dao->getNCateg($ref,$n,$categorie);
+  } else $articles = $dao->getN($ref, $n);
+  //Sinon on récupère tout les articles
+} else {
+  $articles = $dao->firstN($n);
+}
 
 if (isset($_GET['article'])) {
   //Le client à cliquer sur un article pour le commander
@@ -25,19 +39,6 @@ if (isset($_GET['article'])) {
   setcookie($_GET['article'], "commande");
   $article = $dao -> getArticle($_GET['article'], $n);
   $commande = true;
-}
-
-//Definition de $articles selon ref et categorie
-if (isset($_GET['ref'])) {
-  $ref = $_GET['ref'];
-
-  if ($categorie != 'tout') {
-    //On récupère les articles lié à la catégorie choisie
-    $articles = $dao->getNCateg($ref,$n,$categorie);
-  } else $articles = $dao->getN($ref, $n);
-  //Sinon on récupère tout les articles
-} else {
-  $articles = $dao->firstN($n);
 }
 
 // ref de article suivant sinon garde les mêmes articles
