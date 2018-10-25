@@ -10,6 +10,14 @@
 
     <?php if(isset($client)) : ?>
       <!-- affichage du client -->
+    <fieldset>
+      <legend>Votre compte</legend>
+      <p>Nom : <?php echo $client->nom ?></p>
+      <p>Prénom : <?php echo $client->prenom ?></p>
+      <p>Adresse : <?php echo $client->adresse ?></p>
+      <p>Téléphone : <?php echo $client->telephone ?></p>
+      <p>Mail : <?php echo $client->mail ?></p>
+    </fieldset>
 
     <?php else : ?>
       <!-- affichage d'un bouton "se connecter" qui envoie a '../controler/afficherConnexion.ctrl.php' -->
