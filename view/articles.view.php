@@ -19,10 +19,15 @@
     <?php endif; ?>
 
     <section class="fleches">
+      <?php if(!(empty($prev))) : ?>
       <!-- Affiche la flèche de gauche -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
+      <?php endif; ?>
+
+      <?php if(!($nextRef == end($articles)->ref)) : ?>
       <!-- Affiche la flèche de droite -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
+      <?php endif; ?>
     </section>
 
 
@@ -53,10 +58,15 @@
     </section>
 
     <section class="fleches">
+      <?php if(!(empty($prev))) : ?>
       <!-- Affiche la flèche de gauche -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>"> <img src="../view/image/page_precedente.jpg" alt="Flèche page précèdente"> </a>
+      <?php endif; ?>
+      
+      <?php if(!($nextRef == end($articles)->ref)) : ?>
       <!-- Affiche la flèche de droite -->
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
+      <?php endif; ?>
     </section>
 
   </body>

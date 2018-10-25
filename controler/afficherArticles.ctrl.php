@@ -22,13 +22,15 @@ $articles = array();
 ///////////////////////////////////////////////////
 
 //Definition de $articles selon ref et categorie
-if ($categorie == "tout" && isset($_GET['ref'])) {
+if ($categorie == 'tout' && isset($_GET['ref'])) {
+  //S'il y a une ref et une catégorie
+  $ref = $_GET['ref'];
   //S'il y a une ref on récupere les n articles peut importe la catégorie
   $articles = $dao->getN($ref, $n);
-} else if ($categorie == "tout" && !(isset($_GET['ref']))) {
+} else if ($categorie == 'tout' && !(isset($_GET['ref']))) {
   //S'il n'y a pas de ref on récupère les n premier articles peut importe la catégorie
   $articles = $dao->firstN($n);
-} else if ($categorie != "tout" && isset($_GET['ref'])) {
+} else if ($categorie != 'tout' && isset($_GET['ref'])) {
   //S'il y a une ref et une catégorie
   $ref = $_GET['ref'];
   //On récupère les articles lié à la catégorie choisie
@@ -46,17 +48,16 @@ if (isset($_GET['article'])) {
   $commande = true;
 }
 
-// ref de article suivant sinon garde les mêmes articles
-$nextRef = $dao->next(end($articles)->ref);
-if ($nextRef == end($articles)->ref) {
-  $nextRef = $articles[0]->ref;
-}
+// ref de article suivant
+if ($categorie != 'tout') {
+  $nextRef = $dao->nextCat(end($articles)->ref,$categorie);
+} else $nextRef = $dao->next(end($articles)->ref);
 
-// Les articles précédents sinon garde les mêmes articles
-$prev = $dao->prevN($articles[0]->ref,$n);
-if (empty($prev)) {
-  $prev = $articles;
-}
+// Les articles précédents
+if ($categorie != 'tout') {
+  $prev = $dao->prevNCat($articles[0]->ref,$n,$categorie);
+} else $prev = $dao->prevN($articles[0]->ref,$n);
+
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
