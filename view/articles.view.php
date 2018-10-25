@@ -14,11 +14,11 @@
     <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
   <?php endif; ?>
 
-  <?php if($articles == null): ?>
+  <?php if($articles == null) : ?>
     <p>Aucun article ne correspond à votre recherche</p>
   <?php endif; ?>
 
-  <?php if(!(empty($prev))): ?>
+  <?php if(!(empty($prev))) : ?>
     <!-- Affiche la flèche de gauche -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>">&lt; </a>
   <?php endif; ?>
@@ -53,10 +53,15 @@
 
     </section>
 
-    <!-- Affiche la flèche de gauche -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
-    <!-- Affiche la flèche de droite -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
+    <?php if(!(empty($prev))) : ?>
+      <!-- Affiche la flèche de gauche -->
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>">&lt; </a>
+    <?php endif; ?>
+
+    <?php if(!($nextRef == end($articles)->ref)) : ?>
+      <!-- Affiche la flèche de droite -->
+      <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
+    <?php endif; ?>
 
   </body>
 </html>

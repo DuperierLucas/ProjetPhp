@@ -144,6 +144,30 @@ class DAO {
       return $result;
     }
 
+    // Acces à la référence qui suit la référence $ref dans l'ordre des références
+    function nextCat(int $ref, int $categorie) : int {
+      $req = "SELECT * FROM article WHERE $ref < ref and $categorie = categorie LIMIT 1 ";
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+      if (empty($result)) {
+        return $ref;
+      } else return $result[0]->ref;
+    }
+
+    // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
+    function prevNCat(int $ref,int $n,int $categorie): array {
+      $req = "SELECT * FROM article WHERE ref in
+      (SELECT ref FROM article WHERE $ref > ref  and $categorie = categorie ORDER BY ref DESC LIMIT $n)
+      ORDER BY ref";
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+      return $result;
+    }
+
     ////////////////////////////////////////////////////
     //// POUR LES CLIENTS
     ///////////////////////////////////////////////////
