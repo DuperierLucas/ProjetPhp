@@ -53,11 +53,18 @@ if ($categorie != 'tout') {
   $nextRef = $dao->nextCat(end($articles)->ref,$categorie);
 } else $nextRef = $dao->next(end($articles)->ref);
 
+if($nextRef == end($articles)->ref) {
+  $nextRef = $articles[0]->ref;
+}
+
 // Les articles précédents
 if ($categorie != 'tout') {
   $prev = $dao->prevNCat($articles[0]->ref,$n,$categorie);
 } else $prev = $dao->prevN($articles[0]->ref,$n);
 
+if(empty($prev)) {
+  $prev = $articles;
+}
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
