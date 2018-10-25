@@ -6,6 +6,6 @@
     <link rel="stylesheet" href="../view/stylesheet.css">
   </head>
   <body>
-    
+    <?php require_once('../view/footer.view.php'); ?>
   </body>
 </html>

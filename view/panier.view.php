@@ -19,9 +19,9 @@
       <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
     <?php endif; ?>
     <!-- A FAIRE : créer un bouton Valider plutot que des a-->
-  <?php endif; ?>
+    <?php endif; ?>
 
-  <section>
+    <section>
     <?php foreach ($articles as $key => $value) : ?>
       <div>
         <article>
@@ -43,8 +43,8 @@
         <p><?= $key->pourcentageAlcool?>% d'alcool</p>
       </div>
       <!-- A FAIRE : créer un bouton x pour supprimer l'article -->
-  <?php endforeach?>
-</section>
-
-</body>
+    <?php endforeach?>
+    </section>
+    <?php require_once('../view/footer.view.php'); ?>
+  </body>
 </html>

@@ -45,6 +45,6 @@
         </fieldset>
       </form>
     </section>
-
+    <?php require_once('../view/footer.view.php'); ?>
   </body>
 </html>

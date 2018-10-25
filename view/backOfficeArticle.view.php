@@ -59,6 +59,6 @@
       <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> <img src="../view/image/page_suivante.jpg" alt="Flèche page suivante"> </a>
     </section>
   <?php endif; ?>
-
+<?php require_once('../view/footer.view.php'); ?>
   </body>
 </html>

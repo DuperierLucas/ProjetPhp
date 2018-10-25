@@ -17,6 +17,6 @@
       <p>Téléphone : <?= $client->telephone ?></p>
       <p>E-mail : <?= $client->mail ?></p>
     </fieldset>
-
+<?php require_once('../view/footer.view.php'); ?>
   </body>
 </html>

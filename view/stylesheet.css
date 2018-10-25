@@ -60,6 +60,7 @@ header nav ul{
   background-color: #23222f;
 }
 
+/* Style des liens */
 nav a{
   text-decoration: none;
   color: white;
@@ -171,6 +172,18 @@ fieldset input{
 .bouton:hover{
   background-color: #ca7447;
 }
+/* ********************************************************** */
+/* Footer*/
+/* ********************************************************** */
+footer{
+  margin-top: 40px;
+  background-color: #23222f;
+  color: white;
+  padding: 20px;
+}
+footer a{
+  
+}
 
 /* ********************************************************** */
 /* Affichage taille réduite*/
@@ -185,20 +198,35 @@ fieldset input{
   header input{
     width: 500px;
   }
-
-}
-@media (max-width:700px) {
   section div{
-    background-color: tomato;
-  height: 150px;
-  width: 150px;
+  height: 275px;
+  width: 275px;
   margin: 8px;
   border: 2px solid #23222f;
   padding: 20px;
+  font-size: 0.7em;
+
+}
+
+}
+@media (max-width:700px) {
+  .header{
+    font-size: 0.7em;
+  }
+  header input{
+    width: 200px;
+  }
+  section div{
+  height: 225px;
+  width: 225px;
+  margin: 8px;
+  border: 2px solid #23222f;
+  padding: 20px;
+  font-size: 0.6em;
 
 }
 section div img{
   max-height: 150px;
-  max-width: 100px;
+  max-width: 125px;
 }
 }
