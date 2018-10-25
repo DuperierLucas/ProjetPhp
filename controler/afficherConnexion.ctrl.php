@@ -16,6 +16,6 @@ include_once("../model/DAO.class.php");
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/connexion.view');
+include('../view/connexion.view.php');
 
 ?>
