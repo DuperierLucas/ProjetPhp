@@ -172,8 +172,8 @@ class DAO {
     //// POUR LES CLIENTS
     ///////////////////////////////////////////////////
 
-    function getClient(string $mail) : array {
-      $req = "SELECT * FROM client WHERE mail=$mail";
+    function getClient(string $id) : array {
+      $req = "SELECT * FROM client WHERE id=$id";
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
@@ -190,11 +190,27 @@ class DAO {
       return $result;
     }
 
-    function getExiste(string $mail) : boolean{
+    //Renvoie true si le mail existe déjà dans la base de donnée
+    // false sinon
+    function existe(string $mail) : boolean {
       $req = "SELECT * FROM client where mail=$mail";
 
       $sth = $this->db->query($req);
-      return isset($sth);// a finir
+
+      return isset($sth);
+    }
+
+    function getId() : int {
+      $req = "SELECT max(id) FROM client";
+
+      $sth = $this->db->query($req);
+
+      return $sth[0]+1;
+    }
+
+    function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp) {
+      $req = "INSERT INTO client VALUES ($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp)";
+      $sth = $this->db->exec($req);
     }
 
 

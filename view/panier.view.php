@@ -23,13 +23,15 @@
         <!-- Prix -->
         <p><?= $value->prix?> € </p>
       </div>
+      <!-- A FAIRE : créer un bouton x pour supprimer l'article -->
   <?php endforeach?>
 
   <?php if(isset($articles)) : ?>
   <div>
     <p>Prix Total : <?= $prixTotal ?> €</p>
   </div>
-  
+
+  <!-- A FAIRE : créer un bouton Valider qui appelle "../controler/afficherConnexion.ctrl.php" -->
   <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
   <?php endif; ?>
 

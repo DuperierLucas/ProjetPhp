@@ -14,6 +14,14 @@ $articles = array();
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
+//S'il y a une ref dans l'URL, cela signifi que ...
+// ... l'utilisateur veut supprimer cet article de son panier
+if(isset($_GET['article'])) {
+  $article = $_GET['article'];
+  //On supprime l'article des cookies
+  unset($_COOKIE[$article->ref]);
+}
+
 //Création tableau d'article venant des cookie enregistrés
 foreach ($_COOKIE as $key => $value) {
   $article = $dao->getArticle((int)$key);

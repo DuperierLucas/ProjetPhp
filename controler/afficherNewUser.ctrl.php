@@ -1,45 +1,54 @@
 <?php
+
+include_once("../model/DAO.class.php");
+
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
-$mdp=sha1($_POST['ajzt']);
-$mdp2=sha1($_POST['pdsf']);
-$mel=htmlspecialchars($_POST['mel1']);
-$mel2=htmlspecialchars($_POST['mel2']);
 
+//shal permet d'encoder les mots de passes
+$mdp = sha1($_POST['ajzt']);
+$mdp2 = sha1($_POST['pdsf']);
 
+//htmlspecialchars permet de gérer les caractères spéciaux
+$mel = htmlspecialchars($_POST['mel1']);
+$mel2  =htmlspecialchars($_POST['mel2']);
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
 if($mel!=$mel2){
-  $msgErreur = 'Vos adresses Email sont différentes , réessayer !';
+  $msgErreur = 'Vos adresses e-mail sont différentes';
 } elseif ($mdp!=$mdp2) {
-  $msgErreur = 'Vos mots de passe sont différents , réessayer !';
-}else {
+  $msgErreur = 'Vos mots de passe sont différents';
+} else {
     include_once('../model/DAO.class.php');
-    if ($dao->getClient($_POST['mel1'] == NULL)){// Vérifie que le client qui a l'adresse mel1 existe dans la bd
-      echo'Ok'; // a finir et utiliser la methode is existe pour la condition au dessus + connexion auto ( include a afficher connexion.ctrl et la faire)
+    if ($dao->existe($mel)){
+      $msgErreur = 'Cette adresse e-mail existe déjà';
     }
 }
 
+if(!(isset($msgErreur))) {
+  $id = $dao->getId();
+  $nom = $_POST['nm'];
+  $prenom = $_POST['pr'];
+  $adresse = $_POST['adr'];
+  $telephone = $_POST['tel'];
 
-$mauvaisMail = $mel!=$mel2;
-
-
-
-
+  $dao->inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp);
+  $client = $dao->getClient($id);
+}
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
+
 if (isset($msgErreur)) {
   include('../view/inscription.view.php');
+} else {
+  include('../view/compte.view.php');
 }
-
-
-
 
 
 ?>
