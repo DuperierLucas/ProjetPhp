@@ -28,7 +28,11 @@
 
   <p>
     <input type="submit" value="Se connecter"/>
-    <input type="reset"  value="Supprimer"/> </p>
+    <input type="reset"  value="Supprimer"/>
+  </p>
+  <p>
+    <input type="submit" name="inscrire" value="S'inscrire">
+  </p>
 
   </form>
 
