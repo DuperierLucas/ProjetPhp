@@ -11,7 +11,7 @@ $categories = $dao->getCategories();
 
 if(isset($_GET['id'])) {
   $id = $_GET['id'];
-  $client = $dao->getClient($id);
+  $client = $dao->getClientID($id);
 }
 
 ////////////////////////////////////////////////////

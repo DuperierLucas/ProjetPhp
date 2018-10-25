@@ -40,7 +40,7 @@ if(!(isset($msgErreur))) {
   $telephone = $_POST['tel'];
 
   $dao->inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp);
-  $client = $dao->getClient($id);
+  $client = $dao->getClientID($id);
 }
 
 ////////////////////////////////////////////////////

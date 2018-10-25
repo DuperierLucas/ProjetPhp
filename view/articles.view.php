@@ -13,6 +13,7 @@
     <?php if(isset($commande)) : ?>
     <p class="panier">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
+    
     <!-- Si aucun article ne correspond à la recherche on affiche un message -->
     <?php if($articles == null): ?>
       <p class="noResult">Aucun article ne correspond à votre recherche</p>

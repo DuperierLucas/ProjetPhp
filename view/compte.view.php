@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Anonymes&Alcooliques - Mon compte</title>
+    <link rel="stylesheet" href="../view/stylesheet.css">
   </head>
   <body>
     <?php require_once('../view/header.view.php'); ?>
