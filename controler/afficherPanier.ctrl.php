@@ -1,17 +1,23 @@
 <?php
 
+include_once("../model/DAO.class.php");
+
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
+//Pour le header
+$categories = $dao->getCategories();
 
-foreach ($_COOKIE as $key) {
-  //Creer l'articles
-  //l'ajouter a $articles
-}
+$articles = array();
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
+
+foreach ($_COOKIE as $key => $value) {
+  $article = $dao->getArticle((int)$key);
+  array_push($articles, $article);
+}
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE

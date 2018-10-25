@@ -10,16 +10,19 @@
     <!-- Une section contient l'ensemble des produit à afficher -->
 
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
-    <?php if(isset($commande)) :?>
-    <p class="panier">Votre produit a été ajouté au panier</p>
-    <?php endif?>
-    <?php if($articles == null): ?>
-      <p class="noresult">Aucun article ne correspond à votre recherche</p>
-    <?php endif?>
+    <?php if(isset($commande)) : ?>
+    <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
+    <?php endif; ?>
+
+    <!-- Affiche la flèche de gauche -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
+    <!-- Affiche la flèche de droite -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
+
     <section>
-      <?php foreach ($articles as $value) :?>
+      <?php foreach ($articles as $value) : ?>
       <!-- Chaque div représente un article -->
-      <!-- lorsque clique sur le lien ajoute au panier : cookie ?-->
+      <!-- lorsque clique sur le lien ajoute au panier -->
       <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">
         <div>
           <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
@@ -37,6 +40,11 @@
     <?php endforeach ?>
 
     </section>
+
+    <!-- Affiche la flèche de gauche -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
+    <!-- Affiche la flèche de droite -->
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
 
   </body>
 </html>

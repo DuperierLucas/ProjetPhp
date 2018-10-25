@@ -1,11 +1,15 @@
       <header>
         <article class="header">
           <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
+<<<<<<< HEAD
           <form action="afficherResultatRecherche.ctrl.php" method="get">
+=======
+          <form action="" method="post">
+>>>>>>> 9018bafdaa68f4ed01c9dcd5e9317deee5c6bb1b
             <input type="text" name="recherche" placeholder="Rechercher">
           </form>
           <ul>
-            <li> <a href="../controler/afficherCompte.ctrl.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li>
+            <li> <a href="../view/inscription.view.php"> <img src="../view/image/moncompte.jpg" alt="mon compte" > </a> </li><?php//../controler/afficherCompte.ctrl.php?>
             <li><a href="../controler/afficherPanier.ctrl.php"> <img src="../view/image/panier.jpg" alt="panier"> </a> </li>
           </ul>
         </article>
