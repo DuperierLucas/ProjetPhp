@@ -33,7 +33,7 @@ if($valider) {
  }
 }
 
-//Création tableau d'article venant des cookie enregistrés
+//Création tableau d'article venant des cookies enregistrés
 foreach ($_COOKIE as $key => $value) {
   $article = $dao->getArticle((int)$key);
   $article = ($article => $value);

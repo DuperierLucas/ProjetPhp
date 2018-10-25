@@ -11,7 +11,7 @@
           </ul>
         </article>
 
-        <nav class="nav">
+        <nav class="navHeader">
           <ul>
             <li><a href="../controler/afficherArticles.ctrl.php?categorie=tout">Tous Les Vins</a></li>
 

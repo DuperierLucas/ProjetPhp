@@ -16,7 +16,7 @@
 
     <!-- Si aucun article ne correspond à la recherche on affiche un message -->
     <?php if($articles == null): ?>
-      <p class="noResult">Aucun article ne correspond à votre recherche</p>
+      <p class="erreur">Aucun article ne correspond à votre recherche</p>
     <?php endif; ?>
 
 
