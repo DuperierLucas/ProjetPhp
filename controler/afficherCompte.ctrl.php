@@ -24,6 +24,6 @@ if(isset($_GET['id'])) {
 
 if(isset($client)) {
   include('../view/compte.view.php');
-} else include('../view/connexion.php');
+} else include('../view/connexion.view.php');
 
 ?>

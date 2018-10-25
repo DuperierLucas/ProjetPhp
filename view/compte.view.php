@@ -8,7 +8,7 @@
   <body>
     <?php require_once('../view/header.view.php'); ?>
 
-      <!-- affichage du client -->
+    <!-- Affichage du client -->
     <fieldset>
       <legend>Votre compte</legend>
       <p>Nom : <?php echo $client->nom ?></p>
@@ -17,8 +17,6 @@
       <p>Téléphone : <?php echo $client->telephone ?></p>
       <p>Mail : <?php echo $client->mail ?></p>
     </fieldset>
-
-
 
   </body>
 </html>
