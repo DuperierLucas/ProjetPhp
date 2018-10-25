@@ -201,12 +201,12 @@ class DAO {
 
     //Renvoie true si le mail existe déjà dans la base de donnée
     // false sinon
-    function existe(string $mail) : boolean {
+    function existe(string $mail) {
       $req = "SELECT * FROM client where mail=$mail";
 
       $sth = $this->db->query($req);
 
-      return isset($sth);
+      return !(isset($sth));
     }
 
     function getId() : int {
@@ -222,12 +222,12 @@ class DAO {
       $sth = $this->db->exec($req);
     }
 
-    function connexion($mail, $motDePasse) : boolean {
+    function connexion($mail, $motDePasse) {
       $req = "SELECT * FROM client WHERE $mail=mail and $motDePasse=motDePasse";
 
       $sth = $this->db->query($req);
 
-      return isset($sth);
+      return !(isset($sth));
     }
 
 
