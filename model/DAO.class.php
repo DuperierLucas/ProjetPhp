@@ -24,9 +24,9 @@ class DAO {
     }
   }
 
-////////////////////////////////////////////////////
-//// POUR LES CATEGORIES
-///////////////////////////////////////////////////
+  ////////////////////////////////////////////////////
+  //// POUR LES CATEGORIES
+  ///////////////////////////////////////////////////
 
   //Recupère toutes les catégories
   function getCategories() : array {
@@ -38,33 +38,33 @@ class DAO {
     return $result;
   }
 
-////////////////////////////////////////////////////
-//// POUR LES ARTICLES
-///////////////////////////////////////////////////
+  ////////////////////////////////////////////////////
+  //// POUR LES ARTICLES
+  ///////////////////////////////////////////////////
 
-// Accès aux n premiers articles
-// Cette méthode retourne un tableau contenant les n permier articles de
-// la base sous la forme d'objets de la classe Article.
-function firstN(int $n) : array {
-  $req = "SELECT * FROM article LIMIT '$n'";
+  // Accès aux n premiers articles
+  // Cette méthode retourne un tableau contenant les n permier articles de
+  // la base sous la forme d'objets de la classe Article.
+  function firstN(int $n) : array {
+    $req = "SELECT * FROM article LIMIT '$n'";
 
-  $sth = $this->db->query($req);
-  $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
-  return $result;
-}
+    return $result;
+  }
 
-// Acces au n articles à partir de la reférence $ref
-// Cette méthode retourne un tableau contenant n  articles de
-// la base sous la forme d'objets de la classe Article.
-function getN(int $ref,int $n) : array {
-  $req = "SELECT * FROM article WHERE '$ref' <= ref ORDER BY ref LIMIT '$n' ";
+  // Acces au n articles à partir de la reférence $ref
+  // Cette méthode retourne un tableau contenant n  articles de
+  // la base sous la forme d'objets de la classe Article.
+  function getN(int $ref,int $n) : array {
+    $req = "SELECT * FROM article WHERE '$ref' <= ref ORDER BY ref LIMIT '$n' ";
 
-  $sth = $this->db->query($req);
-  $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+    $sth = $this->db->query($req);
+    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
-  return $result;
-}
+    return $result;
+  }
 
   // Acces au n articles à partir de la reférence $ref
   // Retourne une table d'objets de la classe Article
@@ -107,69 +107,71 @@ function getN(int $ref,int $n) : array {
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
     return $result[0];
-
-
-  //Récupère les résultats d'une recherche
-  function getResRecherche($recherche) : array{
-    $req="SELECT * FROM article WHERE libelle LIKE '%$recherche%'";
-        if($sth = $this->db->query($req)){
-          $result = $sth->fetchAll(PDO::FETCH_CLASS,'Article');
-          return $result;
-        }
-
   }
 
-  // Acces à la référence qui suit la référence $ref dans l'ordre des références
-  function next(int $ref) : int {
-    $req = "SELECT * FROM article WHERE $ref < ref LIMIT 1 ";
 
-    $sth = $this->db->query($req);
-    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+    //Récupère les résultats d'une recherche
+    function getResRecherche($recherche) : array{
+      $req="SELECT * FROM article WHERE libelle LIKE '%$recherche%'";
+      if($sth = $this->db->query($req)){
+        $result = $sth->fetchAll(PDO::FETCH_CLASS,'Article');
+        return $result;
+      }
 
-    if (empty($result)) {
-      return $ref;
-    } else return $result[0]->ref;
-  }
+    }
 
-  // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
-  function prevN(int $ref,int $n): array {
-    $req = "SELECT * FROM article WHERE ref in
-    (SELECT ref FROM article WHERE $ref > ref ORDER BY ref DESC LIMIT $n)
-    ORDER BY ref";
+    // Acces à la référence qui suit la référence $ref dans l'ordre des références
+    function next(int $ref) : int {
+      $req = "SELECT * FROM article WHERE $ref < ref LIMIT 1 ";
 
-    $sth = $this->db->query($req);
-    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
-    return $result;
-  }
+      if (empty($result)) {
+        return $ref;
+      } else return $result[0]->ref;
+    }
 
-////////////////////////////////////////////////////
-//// POUR LES CLIENTS
-///////////////////////////////////////////////////
+    // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
+    function prevN(int $ref,int $n): array {
+      $req = "SELECT * FROM article WHERE ref in
+      (SELECT ref FROM article WHERE $ref > ref ORDER BY ref DESC LIMIT $n)
+      ORDER BY ref";
 
-  function getClient(string $mail) : array {
-    $req = "SELECT * FROM client WHERE mail=$mail";
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
-    $sth = $this->db->query($req);
-    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+      return $result;
+    }
 
-    return $result;
-  }
+    ////////////////////////////////////////////////////
+    //// POUR LES CLIENTS
+    ///////////////////////////////////////////////////
 
-  function getAllClients() : array {
-    $req = "SELECT * FROM client";
+    function getClient(string $mail) : array {
+      $req = "SELECT * FROM client WHERE mail=$mail";
 
-    $sth = $this->db->query($req);
-    $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
-    return $result;
-  }
-  function getExiste(string $mail) : boolean{
-    $req = "SELECT * FROM client where mail=$mail";
+      return $result;
+    }
 
-    $sth = $this->db->query($req);
-    return isset($sth);// a finir
-}
+    function getAllClients() : array {
+      $req = "SELECT * FROM client";
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+
+      return $result;
+    }
+
+    function getExiste(string $mail) : boolean{
+      $req = "SELECT * FROM client where mail=$mail";
+
+      $sth = $this->db->query($req);
+      return isset($sth);// a finir
+    }
 
 
 }
