@@ -28,17 +28,15 @@
       <fieldset>
         <legend>Inscription</legend>
         <p>Première fois sur notre site? Inscrivez-vous!</p>
-        <p>
-          <input class="bouton" type="submit" name="inscrire" value="S'inscrire">
-        </p>
+        <form action="../controler/afficherNewUser.ctrl.php" method="post">
+          <p>
+            <input class="bouton" type="submit" name="inscrire" value="S'inscrire">
+          </p>
+        </form>
       </fieldset>
     </section>
 
-  <form action="../controler/afficherNewUser.ctrl.php" method="post">
-    <p>
-      <input type="submit" name="inscrire" value="S'inscrire">
-    </p>
-  </form>
+
 
   </body>
 </html>
