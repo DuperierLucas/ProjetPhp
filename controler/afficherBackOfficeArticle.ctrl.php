@@ -78,6 +78,6 @@ if(empty($prev)) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/articles.view.php');
+include('../view/backOfficeArticles.view.php');
 
 ?>
