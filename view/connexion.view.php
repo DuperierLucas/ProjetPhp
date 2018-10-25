@@ -30,10 +30,13 @@
     <input type="submit" value="Se connecter"/>
     <input type="reset"  value="Supprimer"/>
   </p>
-  <p>
-    <input type="submit" name="inscrire" value="S'inscrire">
-  </p>
 
+  </form>
+
+  <form action="../controler/afficherNewUser.ctrl.php" method="post">
+    <p>
+      <input type="submit" name="inscrire" value="S'inscrire">
+    </p>
   </form>
 
   </body>
