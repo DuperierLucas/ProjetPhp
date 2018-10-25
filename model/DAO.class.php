@@ -2,6 +2,7 @@
 
 require_once("../model/Categorie.class.php");
 require_once("../model/Article.class.php");
+require_once("../model/Client.class.php");
 
 // Creation de l'unique objet DAO
 $dao = new DAO();
@@ -213,13 +214,19 @@ class DAO {
       $req = "SELECT max(id)+1 FROM client";
 
       $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_NUM);
 
-      return $sth[0];
+      //Au cas ou il s'agisse du 1er client
+      if ($result[0][0] == null) {
+        return 1;
+      } else return $result[0];
+
     }
 
-    function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp) {
-      $req = "INSERT INTO client VALUES ($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp)";
-      $sth = $this->db->exec($req);
+    function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mail, $mdp) {
+      $req = "INSERT INTO client VALUES ($id, $nom, $prenom, $adresse, $telephone, $mail, $mdp)";
+
+      $stmt = $this->db->exec($req);
     }
 
     function connexion($mail, $motDePasse) {

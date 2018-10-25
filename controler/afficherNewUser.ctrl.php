@@ -9,45 +9,55 @@ include_once("../model/DAO.class.php");
 //Pour le header
 $categories = $dao->getCategories();
 
-//shal permet d'encoder les mots de passes
-$mdp = sha1($_POST['ajzt']);
-$mdp2 = sha1($_POST['pdsf']);
+//Si l'utilisateur n'a pas appuyé sur le bouton s'inscrire ...
+//... donc qu'il vient de la page inscription et non de la page connexion
+if(!(isset($_POST['inscrire']))) {
+  //shal permet d'encoder les mots de passes
+  $mdp = sha1($_POST['ajzt']);
+  $mdp2 = sha1($_POST['pdsf']);
 
-//htmlspecialchars permet de gérer les caractères spéciaux
-$mel = htmlspecialchars($_POST['mel1']);
-$mel2  =htmlspecialchars($_POST['mel2']);
+  //htmlspecialchars permet de gérer les caractères spéciaux
+  $mel = htmlspecialchars($_POST['mel1']);
+  $mel2  =htmlspecialchars($_POST['mel2']);
+}
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-if($mel!=$mel2){
-  $msgErreur = 'Vos adresses e-mail sont différentes';
-} elseif ($mdp!=$mdp2) {
-  $msgErreur = 'Vos mots de passe sont différents';
-} else {
+if (!(isset($_POST['inscrire']))) {
+  if($mel!=$mel2){
+    $msgErreur = 'Vos adresses e-mail sont différentes';
+  } elseif ($mdp!=$mdp2) {
+    $msgErreur = 'Vos mots de passe sont différents';
+  } else {
     include_once('../model/DAO.class.php');
     if ($dao->existe($mel)){
       $msgErreur = 'Cette adresse e-mail existe déjà';
     }
+  }
 }
 
-if(!(isset($msgErreur))) {
+//S'il n'y a pas eu d'erreur alors on enregistre le client
+if(!(isset($_POST['inscrire'])) && !(isset($msgErreur))) {
   $id = $dao->getId();
   $nom = $_POST['nm'];
   $prenom = $_POST['pr'];
   $adresse = $_POST['adr'];
   $telephone = $_POST['tel'];
 
+//NE FONCTIONNE PAS, LORSQUE GETID : NE RENVOIE PAS LE Client
+//CLIENT NON AJOUTER ?
   $dao->inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp);
   $client = $dao->getClientID($id);
+  var_dump($client);
 }
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-if (isset($msgErreur)) {
+if (isset($msgErreur) || isset($_POST['inscrire'])) {
   include('../view/inscription.view.php');
 } else {
   include('../view/compte.view.php');

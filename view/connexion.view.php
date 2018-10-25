@@ -34,5 +34,11 @@
       </fieldset>
     </section>
 
+  <form action="../controler/afficherNewUser.ctrl.php" method="post">
+    <p>
+      <input type="submit" name="inscrire" value="S'inscrire">
+    </p>
+  </form>
+
   </body>
 </html>
