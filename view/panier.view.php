@@ -20,6 +20,8 @@
         <p><?= $value->annee?></p>
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool?>% d'alcool</p>
+        <!-- Prix -->
+          <p><?= $value->prix?>% d'alcool</p>
       </div>
   <?php endforeach?>
 

@@ -20,7 +20,7 @@
     <!-- Affiche la flèche de gauche -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= $prev[0]->ref.'&categorie='.$categorie?>">&lt; </a>
     <!-- Affiche la flèche de droite -->
-    <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
+    <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($nextRef-1).'&categorie='.$categorie?>"> ></a>
 
     <section>
       <?php foreach ($articles as $value) : ?>
@@ -38,6 +38,8 @@
           <p><?= $value->annee?></p>
           <!-- Pourcentage alcool -->
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
+          <!-- Prix -->
+          <p><?= $value->prix?>% d'alcool</p>
         </div>
       </a>
     <?php endforeach ?>
