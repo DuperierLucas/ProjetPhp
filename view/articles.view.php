@@ -12,15 +12,22 @@
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
     <?php if(isset($commande)) : ?>
     <p>Votre produit <?= $article->libelle?> a été ajouté au panier</p>
-    <?php endif; ?>
-    <?php if($articles == null): ?>
-      <p>Aucun article ne correspond à votre recherche</p>
-    <?php endif; ?>
+  <?php endif; ?>
 
+  <?php if($articles == null): ?>
+    <p>Aucun article ne correspond à votre recherche</p>
+  <?php endif; ?>
+
+  <?php if(!(empty($prev))): ?>
     <!-- Affiche la flèche de gauche -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= ($prev[0]->ref-1).'&categorie='.$categorie?>">&lt; </a>
+  <?php endif; ?>
+
+  <?php if(!($nextRef == end($articles)->ref)) : ?>
     <!-- Affiche la flèche de droite -->
     <a href="../controler/afficherArticles.ctrl.php?ref=<?= $nextRef.'&categorie='.$categorie?>"> ></a>
+  <?php endif; ?>
+
 
     <section>
       <?php foreach ($articles as $value) : ?>
