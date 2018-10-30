@@ -160,7 +160,7 @@ class DAO {
     // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
     function prevNCat(int $ref,int $n,int $categorie): array {
       $req = "SELECT * FROM article WHERE ref in
-      (SELECT ref FROM article WHERE $ref > ref  and $categorie = categorie ORDER BY ref DESC LIMIT $n)
+      (SELECT ref FROM article WHERE $ref > ref and $categorie = categorie ORDER BY ref DESC LIMIT $n)
       ORDER BY ref";
 
       $sth = $this->db->query($req);
@@ -178,17 +178,16 @@ class DAO {
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
-      var_dump($result[0]);
       return $result[0];
     }
 
-    function getClientMail(string $mail) : array {
-      $req = "SELECT * FROM client WHERE mail=$mail";
+    function getClientMail(string $mail) : Client {
+      $req = 'SELECT * FROM client WHERE mail="'.$mail.'"';
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
-      return $result;
+      return $result[0];
     }
 
     function getAllClients() : array {
@@ -226,7 +225,7 @@ class DAO {
     function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mail, $mdp) {
       $req = $this->db->prepare("INSERT INTO client VALUES (:id, :nom, :prenom, :adresse, :telephone, :mail, :mdp)");
 
-      $param = array( 'id'=> $id,
+      $param = array( 'id' => $id,
                       'nom'=> $nom,
                       'prenom' => $prenom,
                       'adresse'=> $adresse,
@@ -238,11 +237,11 @@ class DAO {
     }
 
     function connexion($mail, $motDePasse) {
-      $req = "SELECT * FROM client WHERE $mail=mail and $motDePasse=motDePasse";
+      $req = 'SELECT * FROM client WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
 
       $sth = $this->db->query($req);
 
-      return ($sth == !false);
+      return ($sth != false);
     }
 
 

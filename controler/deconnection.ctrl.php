@@ -1,7 +1,6 @@
 <?php
 
 include_once("../model/DAO.class.php");
-session_start();
 
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
@@ -13,24 +12,14 @@ $categories = $dao->getCategories();
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
+session_start();
 
-/*if(isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $client = $dao->getClientID($id);
-}*/
-
-if(isset($_SESSION['id'])) {
-  $id = $_SESSION['id'];
-  $client = $dao->getClientID($id);
-}
-
+session_destroy();
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-if(isset($client)) {
-  include('../view/compte.view.php');
-} else include('../view/connexion.view.php');
+include('../view/connexion.view.php');
 
 ?>

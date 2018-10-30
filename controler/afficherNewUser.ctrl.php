@@ -46,10 +46,11 @@ if(!(isset($_POST['inscrire'])) && !(isset($msgErreur))) {
   $adresse = $_POST['adr'];
   $telephone = $_POST['tel'];
 
-//NE FONCTIONNE PAS, LORSQUE GETID : NE RENVOIE PAS LE Client
-//CLIENT NON AJOUTER ?
   $dao->inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp);
   $client = $dao->getClientID($id);
+  //On ouvre une nouvelle session car l'utilisateur est connecté
+  session_start();
+  $_SESSION['id'] = $id;
 }
 
 ////////////////////////////////////////////////////
@@ -59,7 +60,7 @@ if(!(isset($_POST['inscrire'])) && !(isset($msgErreur))) {
 if (isset($msgErreur) || isset($_POST['inscrire'])) {
   include('../view/inscription.view.php');
 } else {
-  include('../view/compte.view.php');
+  header('Location: ../view/compte.view.php?id='.$_SESSION['id']);
 }
 
 

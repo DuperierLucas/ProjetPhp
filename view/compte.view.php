@@ -17,6 +17,13 @@
       <p>Téléphone : <?= $client->telephone ?></p>
       <p>E-mail : <?= $client->mail ?></p>
     </fieldset>
-<?php require_once('../view/footer.view.php'); ?>
+
+    <form action="../controler/deconnection.ctrl.php" method="post">
+      <p>
+        <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
+      </p>
+    </form>
+
+    <?php require_once('../view/footer.view.php'); ?>
   </body>
-</html>
+  </html>

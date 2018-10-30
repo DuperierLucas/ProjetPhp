@@ -35,9 +35,11 @@ if($valider) {
 
 //Création tableau d'article venant des cookies enregistrés
 foreach ($_COOKIE as $key => $value) {
+  var_dump($_COOKIE);
   $a = $dao->getArticle((int)$key);
-  $article = ($a => $value);
-  array_push($articles, $article);
+  var_dump($a);
+//  $article = ($a => $value);
+  array_push($articles, $a);
 }
 
 $prixTotal = 0;
