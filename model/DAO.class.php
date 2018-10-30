@@ -173,13 +173,13 @@ class DAO {
     //// POUR LES CLIENTS
     ///////////////////////////////////////////////////
 
-    function getClientID(string $id) : array {
+    function getClientID(string $id) : Client {
       $req = "SELECT * FROM client WHERE id=$id";
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
-
-      return $result;
+      var_dump($result[0]);
+      return $result[0];
     }
 
     function getClientMail(string $mail) : array {
@@ -219,14 +219,22 @@ class DAO {
       //Au cas ou il s'agisse du 1er client
       if ($result[0][0] == null) {
         return 1;
-      } else return $result[0];
+      } else return $result[0][0];
 
     }
 
     function inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mail, $mdp) {
-      $req = "INSERT INTO client VALUES ($id, $nom, $prenom, $adresse, $telephone, $mail, $mdp)";
+      $req = $this->db->prepare("INSERT INTO client VALUES (:id, :nom, :prenom, :adresse, :telephone, :mail, :mdp)");
 
-      $stmt = $this->db->exec($req);
+      $param = array( 'id'=> $id,
+                      'nom'=> $nom,
+                      'prenom' => $prenom,
+                      'adresse'=> $adresse,
+                      'telephone'=> $telephone,
+                      'mail'=> $mail,
+                      'mdp'=> $mdp);
+
+      $req ->execute($param);
     }
 
     function connexion($mail, $motDePasse) {
@@ -234,7 +242,7 @@ class DAO {
 
       $sth = $this->db->query($req);
 
-      return !(isset($sth));
+      return ($sth == !false);
     }
 
 

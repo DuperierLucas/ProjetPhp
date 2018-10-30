@@ -50,7 +50,6 @@ if(!(isset($_POST['inscrire'])) && !(isset($msgErreur))) {
 //CLIENT NON AJOUTER ?
   $dao->inscrireClient($id, $nom, $prenom, $adresse, $telephone, $mel, $mdp);
   $client = $dao->getClientID($id);
-  var_dump($client);
 }
 
 ////////////////////////////////////////////////////

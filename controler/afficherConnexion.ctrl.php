@@ -10,11 +10,11 @@ include_once("../model/DAO.class.php");
 $categories = $dao->getCategories();
 
 if (isset($_POST['mail'])) {
-  $mail = $_POST['mail'];
+  $mail = htmlspecialchars($_POST['mail']);
 }
 
 if (isset($_POST['ajzt'])) {
-  $mdp = $_POST['ajzt'];
+  $mdp = sha1($_POST['ajzt']);
 }
 
 ////////////////////////////////////////////////////
