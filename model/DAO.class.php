@@ -239,7 +239,9 @@ class DAO {
     }
 
     function modifierClient($id, $nom, $prenom, $adresse, $telephone, $mail){
-      $req = $this->db->execute("UPDATE client SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', telephone = '$telephone', mail = $mail WHERE id = '$id'");
+      $req = $this->db->prepare("UPDATE client SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', telephone = $telephone, mail = '$mail' WHERE id = '$id'");
+
+      $req ->execute();
     }
 
     function connexion($mail, $motDePasse) {
