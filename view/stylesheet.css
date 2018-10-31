@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  padding-bottom: 170px;
+  padding-bottom: 180px;
 }
 /* ********************************************************** */
 /* concerne principalement l'affichage du header */
@@ -114,8 +114,8 @@ section{
 
 }
 section div{
-  height: 350px;
-  width: 350px;
+  height: 375px;
+  width: 375px;
   margin: 8px;
   border: 2px solid #23222f;
   padding: 20px;
@@ -132,7 +132,7 @@ section a{
   text-decoration: none;
   color: #23222f;
 }
-section a:hover{
+section a:hover , footer a:hover{
   color: #ca7447;
 }
 section div article{
@@ -196,13 +196,15 @@ footer{
   position:absolute;
   bottom:0;
   width:100%;
-  height:170px;
+  height:180px;
   background-color: #23222f;
   color: white;
   padding: 20px;
-  padding-top:50px;
-}
 
+}
+footer a{
+  color: white;
+}
 /* ********************************************************** */
 /* Affichage taille réduite*/
 /* ********************************************************** */
@@ -222,7 +224,7 @@ footer{
   margin: 8px;
   border: 2px solid #23222f;
   padding: 20px;
-  font-size: 0.7em;
+  font-size: 0.55em;
 
 }
 
@@ -235,12 +237,12 @@ footer{
     width: 200px;
   }
   section div{
-  height: 225px;
-  width: 225px;
+  height: 240px;
+  width: 240px;
   margin: 8px;
   border: 2px solid #23222f;
   padding: 20px;
-  font-size: 0.6em;
+  font-size: 0.5em;
 
 }
 section div img{
