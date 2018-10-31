@@ -1,5 +1,14 @@
-body{
+* {-moz-box-sizing: border-box; box-sizing: border-box;}
+html {
+  height: 100%;
+}
+body {
   font-family: sans-serif;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-bottom: 170px;
 }
 /* ********************************************************** */
 /* concerne principalement l'affichage du header */
@@ -76,10 +85,7 @@ nav a:visited{
 /* concerne principalement les affichages d'articles */
 /* ********************************************************** */
 
-/*  Total du panier*/
-.total{
 
-}
 .panier{
   padding: 8px;
   color: green;
@@ -105,6 +111,7 @@ section{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 section div{
   height: 350px;
@@ -149,8 +156,7 @@ fieldset{
   display: flex;
   flex-direction: column;
   width: 400px;
-
-
+  margin: 8px;
 }
 fieldset input{
   width : 200px;
@@ -172,17 +178,29 @@ fieldset input{
 .bouton:hover{
   background-color: #ca7447;
 }
+
+.connexionAdmin{
+  margin-top: 0px;
+
+}
+.connexionAdmin input{
+  height: 4px;
+  width: 4px;
+
+}
+
 /* ********************************************************** */
 /* Footer*/
 /* ********************************************************** */
 footer{
-  margin-top: 40px;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:170px;
   background-color: #23222f;
   color: white;
   padding: 20px;
-}
-footer a{
-  
+  padding-top:50px;
 }
 
 /* ********************************************************** */

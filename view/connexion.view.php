@@ -20,7 +20,10 @@
           <input type="password" name="ajzt" size="100" placeholder="Mot de passe" required/>
         <p>
           <input class="bouton" type="submit" value="Se connecter"/>
-          <input type="checkbox" name="admin" value="Connexion Administrateur">
+        </p>
+        <p class="connexionAdmin">
+          <label for="admin">Connexion Administrateur</label>
+          <input id="admin" type="checkbox" name="admin" value="Connexion Administrateur">
         </p>
 
       </fieldset>
