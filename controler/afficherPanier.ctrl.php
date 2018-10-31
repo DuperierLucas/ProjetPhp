@@ -12,16 +12,17 @@ $articles = array();
 
 $valider = isset($_GET['action']);
 
+//Le client est connecté
+session_start();
+$connecte = isset($_SESSION['id']);
+
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-//S'il y a une ref dans l'URL, cela signifie que ...
-// ... l'utilisateur veut supprimer cet article de son panier
-if(isset($_GET['article'])) {
-  $article = $_GET['article'];
-  //On supprime l'article des cookies
-  unset($_COOKIE[$article->ref]);
+//Suprression de cookie en trop
+if (isset($_COOKIE['PHPSESSID'])) {
+   unset($_COOKIE['PHPSESSID']);
 }
 
 //Si $valider est vrai selon signifie que l'utilisateur ...
@@ -29,32 +30,28 @@ if(isset($_GET['article'])) {
 if($valider) {
   foreach($_COOKIE as $key){
    // Suppression du cookie
-   unset($_COOKIE[$key]);
+   setcookie($key, false, time() - 3600);
  }
+ $msg = 'Votre commande a bien été prise en compte';
 }
 
-//Suprression de cookie en trop
-if (isset($_COOKIE['PHPSESSID'])) {
-   unset($_COOKIE['PHPSESSID']);
-}
-
-//Cela signifie que le client a cliquer sur supprimer
+//S'il y a "supprimer" dans l'URL, cela signifie que ...
+// ... l'utilisateur veut supprimer cet article de son panier
 if (isset($_GET['supprimer'])) {
   $ref = $_GET['supprimer'];
-  //L'article avait été commandé 1 fois
-  if ($_COOKIE[$ref] == 1) {
-    unset($_COOKIE[$ref]);
-    //On le supprime des cookies
-  } else $_COOKIE[$ref] = $_COOKIE[$ref]-1;
   //On reduit le nombre de commande de 1
+  $_COOKIE[$ref] = $_COOKIE[$ref]-1;
 }
 
 //Création tableau d'article venant des cookies enregistrés
 foreach ($_COOKIE as $key => $value) {
-  $a = $dao->getArticle((int)$key); // On récurère l'article
-  $a->nbCommande = $value; //ajoute un attribut nbCommande
+  //Si on a au moins une commande
+  if ($value > 0) {
+    $a = $dao->getArticle((int)$key); // On récurère l'article
+    $a->nbCommande = $value; //ajoute un attribut nbCommande
 
-  array_push($articles, $a);
+    array_push($articles, $a);
+  }
 }
 
 $prixTotal = 0;
@@ -67,9 +64,6 @@ foreach ($articles as $value) {
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
-
-//Le client est connecté
-$connecte = isset($_GET['id']);
 
 include('../view/panier.view.php');
 

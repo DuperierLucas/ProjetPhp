@@ -8,10 +8,14 @@
 <body>
   <?php require_once('../view/header.view.php'); ?>
 
+  <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
+  <?php if(isset($msg)) : ?>
+    <p class="panier"><?= $msg?></p>
+  <?php endif; ?>
+
   <?php if(isset($articles)) : ?>
 
     <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
-
 
     <?php if($connecte) :?>
       <a href="../controler/afficherPanier.ctrl.php?action=valider">Valider</a>
@@ -30,7 +34,8 @@
           <h4><?= $value->prix?> €</h4>
           <!-- Supprimer l'article -->
           <form action="../controler/afficherPanier.ctrl.php?" method="get">
-            <input type="submit" name="supprimer" value="Supprimer">
+            <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
+            <input type="submit" value="Supprimer">
           </form>
         </article>
         <!-- Nom du vin -->
