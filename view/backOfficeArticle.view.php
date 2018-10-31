@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Alcooliques&Anonymes - Back Office</title>
   <link rel="stylesheet" href="../view/stylesheet.css">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   <?php require_once('../view/header.view.php'); ?>

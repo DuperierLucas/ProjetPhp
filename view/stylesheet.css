@@ -18,26 +18,26 @@ header{
 }
 .header{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 
 }
-header h1 a{
-  padding: 10px;
-  color: #23222f;
-  text-decoration: none;
+header h1 img{
+  margin-top: -50px;
+  height: 200px;
+  width: 320px;
 }
 
 /* Barre de recherche */
 header input{
   width : 800px;
   background-color: white;
-  border-color: #23222f;
+  border : 2px solid #23222f;
   color: #ca7447;
-  height: 30px;
+  height: 40px;
 }
 header form{
-  padding: 20px;
+  margin-top : 50px;
   padding-top: 20px;
 }
 
@@ -239,7 +239,7 @@ footer a{
   header nav ul{
     display: block;
   }
-  
+
   section div{
   height: 240px;
   width: 240px;
