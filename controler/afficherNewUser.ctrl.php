@@ -60,7 +60,7 @@ if(!(isset($_POST['inscrire'])) && !(isset($msgErreur))) {
 if (isset($msgErreur) || isset($_POST['inscrire'])) {
   include('../view/inscription.view.php');
 } else {
-  header('Location: ../view/compte.view.php?id='.$_SESSION['id']);
+  include('../view/compte.view.php');
 }
 
 
