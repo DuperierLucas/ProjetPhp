@@ -199,8 +199,6 @@ class DAO {
       return $result;
     }
 
-
-
     //Renvoie true si le mail existe déjà dans la base de donnée
     // false sinon
     function existe(string $mail) {
@@ -208,7 +206,7 @@ class DAO {
 
       $sth = $this->db->query($req);
 
-      return !(isset($sth));
+      return isset($sth);
     }
 
     function getId() : int {
