@@ -21,12 +21,12 @@ if (isset($_POST['ajzt'])) {
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-if($dao->connexion($mail, $mdp)) {
+if(isset($_POST['mail']) && isset($_POST['ajzt'])) {
+  if ($dao->connexion($mail, $mdp))
   $client = $dao->getClientMail($mail);
   //On ouvre une nouvelle session car l'utilisateur est connecté
   session_start();
   $_SESSION['id'] = $client->id;
-  var_dump($_SESSION);
 }
 
 if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {

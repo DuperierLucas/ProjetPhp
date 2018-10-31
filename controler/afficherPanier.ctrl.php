@@ -16,7 +16,7 @@ $valider = isset($_GET['action']);
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
-//S'il y a une ref dans l'URL, cela signifi que ...
+//S'il y a une ref dans l'URL, cela signifie que ...
 // ... l'utilisateur veut supprimer cet article de son panier
 if(isset($_GET['article'])) {
   $article = $_GET['article'];
@@ -33,12 +33,27 @@ if($valider) {
  }
 }
 
+//Suprression de cookie en trop
+if (isset($_COOKIE['PHPSESSID'])) {
+   unset($_COOKIE['PHPSESSID']);
+}
+
+//Cela signifie que le client a cliquer sur supprimer
+if (isset($_GET['supprimer'])) {
+  $ref = $_GET['supprimer'];
+  //L'article avait été commandé 1 fois
+  if ($_COOKIE[$ref] == 1) {
+    unset($_COOKIE[$ref]);
+    //On le supprime des cookies
+  } else $_COOKIE[$ref] = $_COOKIE[$ref]-1;
+  //On reduit le nombre de commande de 1
+}
+
 //Création tableau d'article venant des cookies enregistrés
 foreach ($_COOKIE as $key => $value) {
-  var_dump($_COOKIE);
-  $a = $dao->getArticle((int)$key);
-  var_dump($a);
-//  $article = ($a => $value);
+  $a = $dao->getArticle((int)$key); // On récurère l'article
+  $a->nbCommande = $value; //ajoute un attribut nbCommande
+
   array_push($articles, $a);
 }
 

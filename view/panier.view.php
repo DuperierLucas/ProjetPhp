@@ -11,7 +11,7 @@
 
   <?php if(isset($articles)) : ?>
 
-      <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
+    <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
 
 
     <?php if($connecte) :?>
@@ -20,32 +20,35 @@
       <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
     <?php endif; ?>
     <!-- A FAIRE : créer un bouton Valider plutot que des a-->
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <section>
+  <section>
     <?php foreach ($articles as $key => $value) : ?>
       <div>
         <article>
-          <img src="../view/image/vins/<?= $key->image ?>" alt="<?= $key->libelle?>">
+          <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
           <!-- Prix -->
           <h4><?= $value->prix?> €</h4>
           <!-- Supprimer l'article -->
-          <input type="submit" name="supprimer" value="Supprimer">
-          <h4><?= $key->prix?> €</h4>
+          <form action="../controler/afficherPanier.ctrl.php?" method="get">
+            <input type="submit" name="supprimer" value="Supprimer">
+          </form>
         </article>
         <!-- Nom du vin -->
-        <h3><?= $key->libelle ?></h3>
+        <h3><?= $value->libelle ?></h3>
         <!-- Description du vin -->
-        <p><?= $key->description?></p>
+        <p><?= $value->description ?></p>
         <!-- Caractéristiques -->
         <!-- Annee -->
-        <p><?= $key->annee?></p>
+        <p><?= $value->annee ?></p>
         <!-- Pourcentage alcool -->
-        <p><?= $key->pourcentageAlcool?>% d'alcool</p>
+        <p><?= $value->pourcentageAlcool ?>% d'alcool</p>
+        <!-- Nombre de bouteille commandé -->
+        <p>x<?= $value->nbCommande ?></p>
+
       </div>
-      <!-- A FAIRE : créer un bouton x pour supprimer l'article -->
     <?php endforeach?>
-    </section>
-    <?php require_once('../view/footer.view.php'); ?>
-  </body>
+  </section>
+  <?php require_once('../view/footer.view.php'); ?>
+</body>
 </html>
