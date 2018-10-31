@@ -190,6 +190,15 @@ class DAO {
       return $result[0];
     }
 
+    function getAdminMail(string $mail) : Gestionnaire {
+      $req = 'SELECT * FROM gestionnaire WHERE mail="'.$mail.'"';
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
+
+      return $result[0];
+    }
+
     function getAllClients() : array {
       $req = "SELECT * FROM client";
 
@@ -244,6 +253,15 @@ class DAO {
 
     function connexion($mail, $motDePasse) {
       $req = 'SELECT * FROM client WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+
+      return ($result != false);
+    }
+
+    function connexionAdmin($mail, $motDePasse) {
+      $req = 'SELECT * FROM gestionnaire WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
