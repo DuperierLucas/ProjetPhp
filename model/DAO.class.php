@@ -246,8 +246,9 @@ class DAO {
       $req = 'SELECT * FROM client WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
 
       $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
-      return ($sth != false);
+      return ($result != false);
     }
 
 
