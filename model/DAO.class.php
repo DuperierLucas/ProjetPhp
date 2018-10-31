@@ -199,6 +199,8 @@ class DAO {
       return $result;
     }
 
+
+
     //Renvoie true si le mail existe déjà dans la base de donnée
     // false sinon
     function existe(string $mail) {
@@ -234,6 +236,10 @@ class DAO {
                       'mdp'=> $mdp);
 
       $req ->execute($param);
+    }
+
+    function modifierClient($id, $nom, $prenom, $adresse, $telephone, $mail){
+      $req = $this->db->execute("UPDATE client SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', telephone = '$telephone', mail = $mail WHERE id = '$id'");
     }
 
     function connexion($mail, $motDePasse) {
