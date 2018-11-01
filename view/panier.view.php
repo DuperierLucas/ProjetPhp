@@ -11,34 +11,29 @@
 
   <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
   <?php if(isset($msg)) : ?>
-    <p class="panier"><?= $msg?></p>
+    <p class="panierMsg"><?= $msg?></p>
   <?php endif; ?>
 
-  <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
+  <h4>Prix Total : <?= $prixTotal ?> €</h4>
 
   <!-- On affiche le bouton valider que si le panier n'est pas vide -->
   <?php if (!empty($articles)) :?>
     <?php if($connecte) :?>
-      <a href="../controler/afficherPanier.ctrl.php?action=valider">Valider</a>
+      <a class="valider" href="../controler/afficherPanier.ctrl.php?action=valider">Valider</a>
     <?php else :?>
-      <a href="../controler/afficherConnexion.ctrl.php">Valider</a>
+      <a class="valider" href="../controler/afficherConnexion.ctrl.php">Valider</a>
     <?php endif; ?>
     <!-- A FAIRE : créer un bouton Valider plutot que des a-->
   <?php endif; ?>
 
 
-  <section>
+  <section class="panier">
     <?php foreach ($articles as $key => $value) : ?>
       <div>
         <article>
           <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
           <!-- Prix -->
           <h4><?= $value->prix?> €</h4>
-          <!-- Supprimer l'article -->
-          <form action="../controler/afficherPanier.ctrl.php?" method="get">
-            <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
-            <input type="submit" value="Supprimer">
-          </form>
         </article>
         <!-- Nom du vin -->
         <h3><?= $value->libelle ?></h3>
@@ -49,8 +44,15 @@
         <p><?= $value->annee ?></p>
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool ?>% d'alcool</p>
-        <!-- Nombre de bouteille commandé -->
-        <p>x<?= $value->nbCommande ?></p>
+        <!-- Supprimer l'article -->
+        <article class="articlesSuppr">
+          <form action="../controler/afficherPanier.ctrl.php?" method="get">
+            <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
+            <input class="bouton" type="submit" value="Supprimer">
+          </form>
+          <!-- Nombre de bouteille commandé -->
+          <p class="nbCommande">x<?= $value->nbCommande ?></p>
+        </article>
 
       </div>
     <?php endforeach?>

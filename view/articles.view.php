@@ -12,7 +12,7 @@
 
     <!-- Si un produit a été commandé on affiche un message de sa prise en compte -->
     <?php if(isset($commande)) : ?>
-    <p class="panier">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
+    <p class="panierMsg">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
 
     <!-- Si aucun article ne correspond à la recherche on affiche un message -->

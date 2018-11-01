@@ -75,16 +75,44 @@ nav a:visited{
   color: white;
 }
 /* ********************************************************** */
-/* concerne principalement les affichages d'articles */
+/* concerne principalement les affichages du panier */
 /* ********************************************************** */
 
 
-.panier{
+.panierMsg{
   padding: 8px;
   color: green;
   border: 4px solid green;
   font-weight: bold;
 }
+.nbCommande{
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.articlesSuppr{
+  position: absolute;
+  bottom: 0px;
+}
+.panier div{
+  position: relative;
+  height: 425px;
+}
+.valider{
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #23222f;
+  color: white;
+}
+.valider:hover{
+  background-color: #ca7447;
+}
+
+/* ********************************************************** */
+/* concerne principalement les affichages d'articles */
+/* ********************************************************** */
+
+
 /* Affichage des messages d'erreurs */
 .erreur{
   padding: 8px;
