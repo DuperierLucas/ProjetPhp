@@ -21,7 +21,12 @@ $categories = $dao->getCategories();
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
-  $client = $dao->getClientID($id);
+  if($id == 'A'){
+    echo 'compte admin'; // a finir, vérifier la condition du if
+  }else{
+    $client = $dao->getClientID($id);
+  }
+
 }
 
 //Si l'utilisateur à modifier son compte, on enregistre les modifications dans la base

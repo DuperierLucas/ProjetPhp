@@ -27,7 +27,7 @@ CREATE TABLE client (
 );
 
 CREATE TABLE gestionnaire (
-  id INT PRIMARY KEY,
+  id CHAR PRIMARY KEY,
   nom TEXT,
   prenom TEXT,
   mail TEXT,

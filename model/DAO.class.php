@@ -3,6 +3,7 @@
 require_once("../model/Categorie.class.php");
 require_once("../model/Article.class.php");
 require_once("../model/Client.class.php");
+require_once("../model/Gestionnaire.class.php");
 
 // Creation de l'unique objet DAO
 $dao = new DAO();
@@ -253,7 +254,6 @@ class DAO {
 
     function connexion($mail, $motDePasse) {
       $req = 'SELECT * FROM client WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
-
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
@@ -261,10 +261,10 @@ class DAO {
     }
 
     function connexionAdmin($mail, $motDePasse) {
-      $req = 'SELECT * FROM gestionnaire WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
-
+      $req = "SELECT * FROM gestionnaire WHERE mail='$mail' and motDePasse='$motDePasse'";
+      echo "SELECT * FROM gestionnaire WHERE mail='$mail' and motDePasse='$motDePasse'";
       $sth = $this->db->query($req);
-      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
 
       return ($result != false);
     }
