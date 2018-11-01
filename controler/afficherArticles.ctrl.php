@@ -1,10 +1,12 @@
 <?php
 
 include_once('../model/DAO.class.php');
-session_start();
+
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
+if(!isset($_SESSION))
+  session_start();
 
 //Le nombre d'articles à afficher par page
 $n = 8;
@@ -12,8 +14,11 @@ $n = 8;
 //Pour le header
 $categories = $dao->getCategories();
 
-//On récupère la catégorie choisie
-$categorie = $_GET['categorie'];
+//On récupère la catégorie choisie ou on affiche tout les articles
+if(isset($_GET['categorie']))
+  $categorie = $_GET['categorie'];
+else
+  $categorie = 'tout';
 
 $articles = array();
 

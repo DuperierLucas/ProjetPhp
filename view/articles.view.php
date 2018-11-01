@@ -41,9 +41,11 @@
             <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
             <!-- Prix -->
             <h4><?= $value->prix?> €</h4>
+            <!-- Si l'administrateur et connecté, on affiche le bouton de modification -->
             <?php if(isset($id)) : ?>
               <form class="modification" action="../controler/afficherModificationArticle.ctrl.php" method="post">
-                <input type="submit" name="modifier" value="Modifier">
+                <input type="hidden" name="ref" value="<?php echo $value->ref  ?>">
+                <input class="bouton" type="submit" name="modifier" value="Modifier">
               </form>
             <?php endif; ?>
           </article>

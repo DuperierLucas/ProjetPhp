@@ -53,7 +53,7 @@ if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
 if (isset($client)) {
   include('../view/compte.view.php');
 } else if(isset($admin)){
-  include('afficherBackOfficeArticle.ctrl.php');
+  include('afficherArticles.ctrl.php');
 }else {
   include('../view/connexion.view.php');
 }

@@ -96,14 +96,14 @@ class DAO {
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
-    echo $result;
+
     return $result;
   }
 
 
   //Recupère l'article selon la ref
   function getArticle($ref) : Article {
-    $req = "SELECT * FROM article WHERE $ref=ref";
+    $req = "SELECT * FROM article WHERE ref= '$ref' ";
 
     $sth = $this->db->query($req);
     $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -168,6 +168,13 @@ class DAO {
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
 
       return $result;
+    }
+
+    //Modification d'un article
+    function modifierArticle($ref, $libelle, $description, $pourcentageAlcool, $annee, $categorie, $prix, $image){
+      $req = $this->db->prepare('UPDATE article SET libelle = "'.$libelle.'", description = "'.$description.'", pourcentageAlcool = '.$pourcentageAlcool.', annee = '.$annee.', categorie = '.$categorie.', prix = '.$prix.', image = "'.$image.'" WHERE ref = '.$ref.'');
+
+      $req ->execute();
     }
 
     ////////////////////////////////////////////////////
