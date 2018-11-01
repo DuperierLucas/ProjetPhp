@@ -1,7 +1,7 @@
 <?php
 
 include_once('../model/DAO.class.php');
-
+session_start();
 ////////////////////////////////////////////////////
 //// RECUPERATION DES DONNEES
 ///////////////////////////////////////////////////
@@ -73,6 +73,9 @@ if ($categorie != 'tout') {
 if(empty($prev)) {
   $prev = $articles;
 }
+
+if (isset($_SESSION['id']) && $_SESSION['id'] == 'A')
+  $id = $_SESSION['id'];
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE

@@ -41,6 +41,11 @@
             <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
             <!-- Prix -->
             <h4><?= $value->prix?> €</h4>
+            <?php if(isset($id)) : ?>
+              <form class="modification" action="../controler/afficherModificationArticle.ctrl.php" method="post">
+                <input type="submit" name="modifier" value="Modifier">
+              </form>
+            <?php endif; ?>
           </article>
           <!-- Nom du vin -->
           <h3><?= $value->libelle ?></h3>

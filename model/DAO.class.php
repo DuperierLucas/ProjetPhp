@@ -196,14 +196,13 @@ class DAO {
 
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
-
       return $result[0];
     }
 
     function getAdminID(string $id) : Gestionnaire {
-      $req = "SELECT * FROM gestionnaire WHERE id=$id";
-
-      $sth = $this->db->query($req);
+      $req = "SELECT * FROM gestionnaire WHERE id= '$id'";
+      echo "SELECT * FROM gestionnaire WHERE id= $id";
+    $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
       return $result[0];
     }
@@ -257,6 +256,12 @@ class DAO {
 
     function modifierClient($id, $nom, $prenom, $adresse, $telephone, $mail){
       $req = $this->db->prepare("UPDATE client SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', telephone = $telephone, mail = '$mail' WHERE id = '$id'");
+
+      $req ->execute();
+    }
+
+    function modifierAdmin($id, $nom, $prenom, $mail){
+      $req = $this->db->prepare("UPDATE gestionnaire SET nom = '$nom', prenom = '$prenom', mail = '$mail' WHERE id = '$id'");
 
       $req ->execute();
     }
