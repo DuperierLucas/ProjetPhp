@@ -14,10 +14,10 @@
     <p class="panier"><?= $msg?></p>
   <?php endif; ?>
 
-  <?php if(isset($articles)) : ?>
+  <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
 
-    <h4 class="Total">Prix Total : <?= $prixTotal ?> €</h4>
-
+  <!-- On affiche le bouton valider que si le panier n'est pas vide -->
+  <?php if (!empty($articles)) :?>
     <?php if($connecte) :?>
       <a href="../controler/afficherPanier.ctrl.php?action=valider">Valider</a>
     <?php else :?>
@@ -25,6 +25,7 @@
     <?php endif; ?>
     <!-- A FAIRE : créer un bouton Valider plutot que des a-->
   <?php endif; ?>
+
 
   <section>
     <?php foreach ($articles as $key => $value) : ?>

@@ -31,7 +31,7 @@ if(isset($_POST['mail']) && isset($_POST['ajzt'])) {
       $_SESSION['id'] = $client->id;
     }
   }
-  else ($dao->connexion($mail, $mdp)){  //connexion pour client normal
+  else if ($dao->connexion($mail, $mdp)){  //connexion pour client normal
     $client = $dao->getClientMail($mail);
     //On ouvre une nouvelle session car l'utilisateur est connecté
     session_start();
@@ -53,8 +53,8 @@ if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
 if (isset($client)) {
   include('../view/compte.view.php');
 } else if(isset($admin)){
-  include('afficherBackOffice.ctrl.php')
-}else {
+  include('../controler/afficherBackOffice.ctrl.php');
+} else {
   include('../view/connexion.view.php');
 }
 
