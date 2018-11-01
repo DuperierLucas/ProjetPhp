@@ -114,7 +114,7 @@ class DAO {
 
     //Récupère les résultats d'une recherche
     function getResRecherche($recherche) : array{
-      $req="SELECT * FROM article WHERE libelle LIKE '%$recherche%'";
+      $req='SELECT * FROM article WHERE libelle LIKE "%'.$recherche.'%"';
       if($sth = $this->db->query($req)){
         $result = $sth->fetchAll(PDO::FETCH_CLASS,'Article');
         return $result;
