@@ -31,7 +31,8 @@ if($valider) {
   foreach($_COOKIE as $key){
    // Suppression du cookie
    setcookie($key, false, time() - 3600);
- }
+  }
+  var_dump($_COOKIE);
  $msg = 'Votre commande a bien été prise en compte';
 }
 
@@ -39,14 +40,11 @@ if($valider) {
 // ... l'utilisateur veut supprimer cet article de son panier
 if (isset($_GET['supprimer'])) {
   $ref = $_GET['supprimer'];
-  var_dump($_COOKIE);
   $nbCommande = $_COOKIE[$ref];
   // Suppression du cookie
   setcookie($ref, false, time() - 3600);
   //On reduit le nombre de commande de 1
   $_COOKIE[$ref] = $nbCommande-1;
-  var_dump($_COOKIE);
-  echo 'ok';
 }
 
 //Création tableau d'article venant des cookies enregistrés
