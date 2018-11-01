@@ -21,8 +21,9 @@ $categories = $dao->getCategories();
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
-  if($id == 'A'){
-    echo 'compte admin'; // a finir, vérifier la condition du if
+  echo "id = $id";
+  if($id == 'A'){ //On vérifie si l'utilisateur est l'administrateur
+    $admin = $dao->getAdminID($id);
   }else{
     $client = $dao->getClientID($id);
   }

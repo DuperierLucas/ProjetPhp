@@ -200,6 +200,15 @@ class DAO {
       return $result[0];
     }
 
+    function getAdminID(string $id) : Gestionnaire {
+      $req = "SELECT * FROM gestionnaire WHERE id=$id";
+
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
+      return $result[0];
+    }
+
+
     function getAllClients() : array {
       $req = "SELECT * FROM client";
 
