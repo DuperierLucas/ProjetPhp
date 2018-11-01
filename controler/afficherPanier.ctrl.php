@@ -28,11 +28,12 @@ if (isset($_COOKIE['PHPSESSID'])) {
 //Si $valider est vrai selon signifie que l'utilisateur ...
 // ... a validé son panier ET été connecté
 if($valider) {
+  $_COOKIE = array();
   foreach($_COOKIE as $key){
    // Suppression du cookie
-   setcookie($key, false, time() - 3600);
+   unset($_COOKIE[$key]);
+   setcookie($key);
   }
-  var_dump($_COOKIE);
  $msg = 'Votre commande a bien été prise en compte';
 }
 
@@ -42,9 +43,12 @@ if (isset($_GET['supprimer'])) {
   $ref = $_GET['supprimer'];
   $nbCommande = $_COOKIE[$ref];
   // Suppression du cookie
-  setcookie($ref, false, time() - 3600);
-  //On reduit le nombre de commande de 1
-  $_COOKIE[$ref] = $nbCommande-1;
+  unset($_COOKIE[$ref]);
+  setcookie($ref);
+
+  if ($nbCommande > 1) {
+    $_COOKIE[$ref] = $nbCommande - 1;
+  }
 }
 
 //Création tableau d'article venant des cookies enregistrés
