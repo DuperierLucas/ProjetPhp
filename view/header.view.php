@@ -1,6 +1,6 @@
       <header>
         <article class="header">
-          <h1> <a href="../controler/afficherCategories.ctrl.php">Alcooliques&Anonymes.com</a></h1>
+          <h1> <a href="../controler/afficherCategories.ctrl.php"> <img src="../view/image/logoA&A.png" alt="Logo de Alcooliques & Anonymes .com"> </a></h1>
 
           <form action="afficherResultatRecherche.ctrl.php" method="get">
             <input type="text" name="recherche" placeholder="Rechercher un vin">

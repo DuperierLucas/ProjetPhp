@@ -22,16 +22,29 @@ if (isset($_POST['ajzt'])) {
 ///////////////////////////////////////////////////
 
 if(isset($_POST['mail']) && isset($_POST['ajzt'])) {
-  if ($dao->connexion($mail, $mdp))
-  $client = $dao->getClientMail($mail);
-  //On ouvre une nouvelle session car l'utilisateur est connecté
-  session_start();
-  $_SESSION['id'] = $client->id;
+  //On vérifie si c'est un administrateur qui veut se connecter, si oui on vérifie son idnetité et on le connecte
+  if(!isset($_POST['admin'])){
+    if ($dao->connexionAdmin($mail, $mdp)){
+      $admin = $dao->getAdminMail($mail);
+      //On ouvre une nouvelle session car l'utilisateur est connecté
+      session_start();
+      $_SESSION['id'] = $client->id;
+    }
+  }
+  else ($dao->connexion($mail, $mdp)){  //connexion pour client normal
+    $client = $dao->getClientMail($mail);
+    //On ouvre une nouvelle session car l'utilisateur est connecté
+    session_start();
+    $_SESSION['id'] = $client->id;
+  }
+
 }
 
 if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
   $msgErreur = 'E-mail ou mot de passe incorrect';
 }
+
+
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
@@ -39,7 +52,9 @@ if(!(isset($client)) && (isset($_POST['mail']) || isset($_POST['ajzt']))) {
 
 if (isset($client)) {
   include('../view/compte.view.php');
-} else {
+} else if(isset($admin)){
+  include('afficherBackOffice.ctrl.php')
+}else {
   include('../view/connexion.view.php');
 }
 
