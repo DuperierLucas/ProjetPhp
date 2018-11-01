@@ -8,15 +8,13 @@
   </head>
   <body>
       <?php require_once('../view/header.view.php'); ?>
-    <section>
-      <?php if(isset($msgErreur)) : ?>
-        <p class="erreur"><?= $msgErreur ?></p>
-      <?php endif ?>
-
+    <section>      
       <form action="../controler/afficherConnexion.ctrl.php" method="post">
         <fieldset>
           <legend>Connexion</legend>
-
+          <?php if(isset($msgErreur)) : ?>
+            <p class="erreur"><?= $msgErreur ?></p>
+          <?php endif ?>
           <input type="Email" name="mail" size="100" placeholder="Email" required/>
           <input type="password" name="ajzt" size="100" placeholder="Mot de passe" required/>
         <p>

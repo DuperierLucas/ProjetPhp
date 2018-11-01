@@ -13,7 +13,7 @@ $n = 8;
 $categories = $dao->getCategories();
 
 //On récupère la catégorie choisie
-$categorie = $_GET['categorie'];
+$categorie = 'tout';
 
 $articles = array();
 
@@ -78,6 +78,6 @@ if(empty($prev)) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/backOfficeArticles.view.php');
+include('../view/backOfficeArticle.view.php');
 
 ?>
