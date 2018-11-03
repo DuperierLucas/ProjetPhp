@@ -9,6 +9,7 @@
   <body>
       <?php require_once('../view/header.view.php'); ?>
       <section>
+        <?php echo sha1('admin') ?>
         <?php foreach ($categories as $value) :?>
         <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $value->ref ?>">
           <div>
