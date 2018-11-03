@@ -171,19 +171,25 @@ class DAO {
     }
 
     function ajouterArticle($libelle, $description, $pourcentageAlcool, $annee, $categorie, $prix, $image){
-      // $req = $this->db->prepare('INSERT INTO article values (ref = (SELECT count(ref)+1 FROM article)libelle = "'.$libelle.'", description = "'.$description.'", pourcentageAlcool = '.$pourcentageAlcool.', annee = '.$annee.', categorie = '.$categorie.', prix = '.$prix.', image = "'.$image.'" WHERE ref = '.$ref.')');
+      //On cherche la ref la plus grande pour déterminer la ref du nouvelle article en lui faisant +1
+      $req = "SELECT count(ref)+1 as newref FROM article";
 
-      $req = $this->db->prepare('INSERT INTO article values (ref = (SELECT count(ref)+1 FROM article), :libelle, :description, :pourcentageAlcool, :annee, :categorie, :prix , :image )');
+      $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Article');
+      $result = $result[0];
+      //On effectue l'insertion dans la base
+      $req = $this->db->prepare('INSERT INTO article values (:ref, :libelle, :description, :pourcentageAlcool, :annee, :categorie, :prix , :image )');
 
-      $param = array( 'libelle' => $libelle,
-                      'description'=> $description,
+      $param = array( 'ref' => $result->newref,
+                      "libelle" => $libelle,
+                      "description"=> $description,
                       'pourcentageAlcool' => $pourcentageAlcool,
                       'annee'=> $annee,
                       'categorie'=> $categorie,
-                      'prix'=> $prix,
-                      'image'=> $image);
+                      'prix' => $prix,
+                      "image"=> $image);
 
-     $req ->execute();                      
+     $req ->execute($param);
     }
     //Modification d'un article
     function modifierArticle($ref, $libelle, $description, $pourcentageAlcool, $annee, $categorie, $prix, $image){
@@ -193,7 +199,7 @@ class DAO {
     }
 
     function supprimerArticle($ref){
-      $req = $this->db->prepare('DELETE FROm article WHERE ref = '.$ref.'');
+      $req = $this->db->prepare("DELETE FROM article WHERE ref = $ref");
       $req ->execute();
     }
 

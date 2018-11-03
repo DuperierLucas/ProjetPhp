@@ -30,7 +30,7 @@
         <legend>Supprimer l'article</legend>
         <p>Attention la suppression de l'article est définitive!</p>
         <form action="afficherSuppressionArticle.ctrl.php" method="post">
-          <input type="hidden" name="ref" value="'.<?php echo $article->ref ?>.'">
+          <input type="hidden" name="ref" value="<?php echo $article->ref ?>">
           <input class="bouton" type="submit" name="supprimer" value="Supprimer l'article">
         </form>
       </fieldset>

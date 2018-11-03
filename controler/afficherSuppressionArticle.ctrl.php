@@ -8,7 +8,10 @@ include_once("../model/DAO.class.php");
 
 //Pour le header
 $categories = $dao->getCategories();
-
+//Indication pour la vue des articles à afficher
+$articles = $dao->getAllArticles();
+//Indication pour la vue de la liste d'article à  afficher
+$categorie = 'tout';
 //Récupération de la référence de l'article à supprimer
 $refSuppr = $_POST['ref'];
 
@@ -23,6 +26,6 @@ $dao->supprimerArticle($refSuppr);
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/accueil.view.php');
+include('../view/articles.view.php');
 
 ?>

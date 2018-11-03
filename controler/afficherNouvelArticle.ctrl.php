@@ -16,6 +16,7 @@ $categories = $dao->getCategories();
 //Si l'utilisateur ajoute un article
 if(!empty($_POST['enregistrer'])) {
   $dao->ajouterArticle($_POST['libelle'], $_POST['description'], $_POST['pourcentageAlcool'], $_POST['annee'], $_POST['categorie'], $_POST['prix'], $_POST['image']);
+  $msg = '"'.$_POST['libelle'].'" bien ajouté';
 }
 
 
