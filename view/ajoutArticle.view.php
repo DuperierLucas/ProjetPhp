@@ -16,7 +16,7 @@
         <p> - Mettre '1' pour les Vins Blancs</p>
         <p> - Mettre '2' pour les Vins Rouges</p>
         <p> - Mettre '3' pour les Vins Rosés</p>
-        <p> - Mettre 'tout' si votre article n'appartient à aucune Catégorie, il apparaîtra alors dans "tout les vins"</p>
+        <p> - Mettre '4' si votre article n'appartient à aucune Catégorie, il apparaîtra alors dans "tout les vins"</p>
       </fieldset>
       <fieldset>
         <legend>Modifier l'article</legend>
