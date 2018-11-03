@@ -23,7 +23,6 @@
     <?php else :?>
       <a class="valider" href="../controler/afficherConnexion.ctrl.php">Valider</a>
     <?php endif; ?>
-    <!-- A FAIRE : créer un bouton Valider plutot que des a-->
   <?php endif; ?>
 
 
@@ -50,7 +49,7 @@
             <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
             <input class="bouton" type="submit" value="Supprimer">
           </form>
-          <!-- Nombre de bouteille commandé -->
+          <!-- Nombre de bouteille commandées -->
           <p class="nbCommande">x<?= $value->nbCommande ?></p>
         </article>
 

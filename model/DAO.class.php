@@ -170,12 +170,33 @@ class DAO {
       return $result;
     }
 
+    function ajouterArticle($libelle, $description, $pourcentageAlcool, $annee, $categorie, $prix, $image){
+      // $req = $this->db->prepare('INSERT INTO article values (ref = (SELECT count(ref)+1 FROM article)libelle = "'.$libelle.'", description = "'.$description.'", pourcentageAlcool = '.$pourcentageAlcool.', annee = '.$annee.', categorie = '.$categorie.', prix = '.$prix.', image = "'.$image.'" WHERE ref = '.$ref.')');
+
+      $req = $this->db->prepare('INSERT INTO article values (ref = (SELECT count(ref)+1 FROM article), :libelle, :description, :pourcentageAlcool, :annee, :categorie, :prix , :image )');
+
+      $param = array( 'libelle' => $libelle,
+                      'description'=> $description,
+                      'pourcentageAlcool' => $pourcentageAlcool,
+                      'annee'=> $annee,
+                      'categorie'=> $categorie,
+                      'prix'=> $prix,
+                      'image'=> $image);
+
+     $req ->execute();                      
+    }
     //Modification d'un article
     function modifierArticle($ref, $libelle, $description, $pourcentageAlcool, $annee, $categorie, $prix, $image){
       $req = $this->db->prepare('UPDATE article SET libelle = "'.$libelle.'", description = "'.$description.'", pourcentageAlcool = '.$pourcentageAlcool.', annee = '.$annee.', categorie = '.$categorie.', prix = '.$prix.', image = "'.$image.'" WHERE ref = '.$ref.'');
 
       $req ->execute();
     }
+
+    function supprimerArticle($ref){
+      $req = $this->db->prepare('DELETE FROm article WHERE ref = '.$ref.'');
+      $req ->execute();
+    }
+
 
     ////////////////////////////////////////////////////
     //// POUR LES CLIENTS
@@ -208,8 +229,7 @@ class DAO {
 
     function getAdminID(string $id) : Gestionnaire {
       $req = "SELECT * FROM gestionnaire WHERE id= '$id'";
-      echo "SELECT * FROM gestionnaire WHERE id= $id";
-    $sth = $this->db->query($req);
+      $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
       return $result[0];
     }
@@ -283,7 +303,6 @@ class DAO {
 
     function connexionAdmin($mail, $motDePasse) {
       $req = "SELECT * FROM gestionnaire WHERE mail='$mail' and motDePasse='$motDePasse'";
-      echo "SELECT * FROM gestionnaire WHERE mail='$mail' and motDePasse='$motDePasse'";
       $sth = $this->db->query($req);
       $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Gestionnaire');
 

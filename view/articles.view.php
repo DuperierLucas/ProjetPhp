@@ -15,6 +15,11 @@
     <p class="panierMsg">Votre produit <?= $article->libelle?> a été ajouté au panier</p>
     <?php endif; ?>
 
+    <!-- Si un article à été supprimer -->
+    <?php if(isset($refSuppr)): ?>
+      <p class="panierMsg">Votre produit référencé <?= $refSuppr?> a bien été supprimé</p>
+    <?php endif; ?>
+
     <!-- Si aucun article ne correspond à la recherche on affiche un message -->
     <?php if($articles == null): ?>
       <p class="erreur">Aucun article ne correspond à votre recherche</p>

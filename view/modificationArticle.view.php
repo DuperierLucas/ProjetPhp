@@ -10,6 +10,7 @@
     <?php require_once('../view/header.view.php'); ?>
 
     <section>
+      <img class="imageVueModif" src="../view/image/vins/<?php echo $article->image ?>" alt="image de l'article">
       <fieldset>
         <legend>Modifier l'article</legend>
         <form action="afficherModificationArticle.ctrl.php" method="post">
@@ -23,6 +24,14 @@
           <p> Prix : <input type="text" name="prix" value="<?php echo $article->prix ?>"> </p>
           <p> Nom de l'image : <input type="text" name="image" value="<?php echo $article->image ?>"> </p>
           <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
+        </form>
+      </fieldset>
+      <fieldset>
+        <legend>Supprimer l'article</legend>
+        <p>Attention la suppression de l'article est définitive!</p>
+        <form action="afficherSuppressionArticle.ctrl.php" method="post">
+          <input type="hidden" name="ref" value="'.<?php echo $article->ref ?>.'">
+          <input class="bouton" type="submit" name="supprimer" value="Supprimer l'article">
         </form>
       </fieldset>
     </section>

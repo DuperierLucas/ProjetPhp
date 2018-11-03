@@ -9,7 +9,6 @@
   <body>
       <?php require_once('../view/header.view.php'); ?>
       <section>
-
         <?php foreach ($categories as $value) :?>
         <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $value->ref ?>">
           <div>

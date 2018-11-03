@@ -10,6 +10,14 @@ body {
   position: relative;
   padding-bottom: 180px;
 }
+
+.imageVueModif{
+  max-width: 600px;
+  max-height: 800px;
+  border: 2px solid #23222f;
+  margin: 8px;
+}
+
 /* ********************************************************** */
 /* concerne principalement l'affichage du header */
 /* ********************************************************** */
@@ -188,10 +196,11 @@ fieldset input{
   margin: 8px;
 }
 
-/* Style des boutons de connexion */
+/* Style des boutons */
 .bouton{
   border: 1px solid #23222f;
   background-color: #23222f;
+  padding: 5px;
   color: white;
 
 }
