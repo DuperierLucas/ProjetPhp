@@ -25,6 +25,6 @@
 25|Terroirs|A ne pas savourer|18|2014|1|35.00|terroirs.jpg
 26|Alsace Pinot Blanc Tradition|L'équivalent du panaché en vin blanc|3|2014|1|2.99|pinot_alsace.jpg
 27|Entre Deux Mers|Si vous n'avez pas le mal de mer|19|2016|1|6.85|entre_2_mers.png
-28|La Fleur Marie|Idéal pour les bastons dans le 93|2|2013|1|0.99|la-fleur-marie.jpg
+28|Bordeaux château Chavrignac|Idéal pour les bastons dans le 93|2|2013|1|0.99|chateau-chavrignac.jpg
 29|La Fleur Marie|Pour une gueule de bois garantie|37.5|2018|1|10.00|la-fleur-marie.jpg
 30|La Cote Blanche|Plus efficace que des somnifères|21|2001|1|4.00|Cote_blanche.jpg
