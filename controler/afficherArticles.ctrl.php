@@ -47,9 +47,8 @@ if ($categorie == 'tout' && isset($_GET['ref'])) {
 
 if (isset($_GET['article'])) {
   //Le client à cliquer sur un article pour le commander
-  //On ajoute cette article aux cookies
   $ref = $_GET['article'];
-
+  //On ajoute cette article aux cookies
   if(isset($_COOKIE[$ref])) {
     //S'il a déjà été ajouté, on modifie le nombre de commande
     $nbCommande = $_COOKIE[$ref] + 1;

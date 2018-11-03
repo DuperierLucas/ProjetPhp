@@ -43,14 +43,15 @@
         <p><?= $value->annee ?></p>
         <!-- Pourcentage alcool -->
         <p><?= $value->pourcentageAlcool ?>% d'alcool</p>
-        <!-- Supprimer l'article -->
-        <article class="articlesSuppr">
-          <form action="../controler/afficherPanier.ctrl.php?" method="get">
-            <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
-            <input class="bouton" type="submit" value="Supprimer">
-          </form>
           <!-- Nombre de bouteille commandées -->
+        <article class="articlesSuppr">
           <p class="nbCommande">x<?= $value->nbCommande ?></p>
+          <!-- Supprimer l'article -->
+
+            <form action="../controler/afficherPanier.ctrl.php?" method="get">
+              <input type="hidden" name="supprimer" value="<?= $value->ref ?>">
+              <input class="bouton" type="submit" value="Supprimer">
+            </form>
         </article>
 
       </div>

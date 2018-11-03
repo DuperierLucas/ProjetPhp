@@ -98,8 +98,8 @@ nav a:visited{
   font-size: 1.5em;
 }
 .articlesSuppr{
-  position: absolute;
-  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
 }
 .panier div{
   position: relative;

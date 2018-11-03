@@ -10,6 +10,14 @@
     <?php require_once('../view/header.view.php'); ?>
 
     <section>
+      <fieldset>
+        <legend>Fonctionnement des catégories</legend>
+        <p>Les catégories sont numérotés de 1 à 3:</p>
+        <p> - Mettre '1' pour les Vins Blancs</p>
+        <p> - Mettre '2' pour les Vins Rouges</p>
+        <p> - Mettre '3' pour les Vins Rosés</p>
+        <p> - Mettre 'tout' si votre article n'appartient à aucune Catégorie, il apparaîtra alors dans "tout les vins"</p>
+      </fieldset>
       <img class="imageVueModif" src="../view/image/vins/<?php echo $article->image ?>" alt="image de l'article">
       <fieldset>
         <legend>Modifier l'article</legend>
