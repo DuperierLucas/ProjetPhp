@@ -15,11 +15,14 @@
         <fieldset>
           <legend>Votre compte</legend>
           <?php if(isset($client)): ?>
-          <p>Nom : <input type="text" name="nom" value="<?= $client->nom ?>" required></p>
-          <p>Prénom : <input type="text" name="prenom" value="<?= $client->prenom ?>" required> </p>
-          <p>Adresse : <input type="text" name="adresse" value="<?= $client->adresse ?>" required> </p>
+          <label for="nom"> Nom * :</label>
+          <input type="text" name="nom" value="<?= $client->nom ?>" id="nom" required>
+          <label for="prenom"> Prénom * : </label>
+          <input type="text" name="prenom" value="<?= $client->prenom ?>" id="prenom" required>
+          <label for="addr"> Adresse * : </label>
+          <input type="text" name="adresse" value="<?= $client->adresse ?>" id="addr" required>
           <p>Téléphone : <input type="text" name="telephone" value="<?= $client->telephone ?>" required> </p>
-          <p>E-mail : <input type="email" name="mail" value="<?= $client->mail ?>" required> </p>
+          <p>E <input type="email" name="mail" value="<?= $client->mail ?>" required> </p>
           <label for="mdp">Choisir un mot de passe * :</label>
           <input type="password" name="ajzt" size="100" id="mdp" required/>
 
