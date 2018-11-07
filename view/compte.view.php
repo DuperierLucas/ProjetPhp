@@ -20,6 +20,11 @@
           <p>Adresse : <input type="text" name="adresse" value="<?= $client->adresse ?>" required> </p>
           <p>Téléphone : <input type="text" name="telephone" value="<?= $client->telephone ?>" required> </p>
           <p>E-mail : <input type="email" name="mail" value="<?= $client->mail ?>" required> </p>
+          <label for="mdp">Choisir un mot de passe * :</label>
+          <input type="password" name="ajzt" size="100" id="mdp" required/>
+
+          <label for="mdp2">Confirmation du mot de passe * :</label>
+          <input type="password" name="pdsf" size="100" id="mdp2" required/>
         <?php endif; ?>
         <?php if(isset($admin)): ?>
           <p>Nom : <input type="text" name="nom" value="<?= $admin->nom ?>" required></p>
@@ -37,14 +42,17 @@
             </form>
           </fieldset>
       <?php endif; ?>
-      <form action="../controler/deconnection.ctrl.php" method="post">
-        <p>
-          <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
-        </p>
-      </form>
-      <form action="../controler/afficherSupprimerCompte.ctrl.php" method="post">
-        <input class="bouton" type="submit" name="supprCompte" value="Supprimer Votre Compte">
-      </form>
+      <fieldset class="quitterCompte">
+        <form action="../controler/deconnection.ctrl.php" method="post">
+          <p>
+            <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
+          </p>
+        </form>
+        <form action="../controler/afficherSupprimerCompte.ctrl.php" method="post">
+          <input class="bouton" type="submit" name="supprCompte" value="Supprimer Votre Compte">
+        </form>
+      </fieldset>
+
     </section>
 
 
