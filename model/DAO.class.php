@@ -315,7 +315,6 @@ class DAO {
       return ($result != false);
     }
 
-
 }
 
 ?>
