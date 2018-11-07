@@ -16,27 +16,28 @@ session_start();
 
 if(isset($_SESSION['id']) && isset($_POST['ajzt'])) {
   $id = $_SESSION['id'];
-  $mdp = $_POST['ajzt'];
+  $mdp = sha1($_POST['ajzt']);
+  $client = $dao->getClientID($id);
 
-  if($id == 'A'){ //On vérifie si l'utilisateur est l'administrateur
-    $admin = $dao->getAdminID($id);
-    if ($admin->motDePasse == $mdp) {
-      $dao->suppressionCompteAdmin($admin->motDePasse);
-    }
-  } else{
-    $client = $dao->getClientID($id);
-    if ($client->motDePasse == $mdp) {
-      $dao->suppressionCompteAdmin($client->motDePasse);
-    }
+  if ($client->motDePasse == $mdp) {
+    $dao->suppressionCompteClient($client->id);
+    $msg = "Votre compte a bien été supprimé";
+  } else {
+    $msgErreur = "Mot de passe incorrect";
   }
 
 }
 
-session_destroy();
+if (!isset($msgErreur)) {
+  session_destroy();
+}
+
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/connexion.view.php');
+if (isset($msgErreur)) {
+  include('../view/modifCompte.view.php');
+} else include('../view/connexion.view.php');
 
 ?>

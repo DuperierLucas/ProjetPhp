@@ -316,12 +316,9 @@ class DAO {
     }
 
     function suppressionCompteClient($id) {
-      $req = $this->db->prepare("DELETE FROM client WHERE $id = id");
-      $req->execute();
-    }
-
-    function suppressionCompteAdmin($id) {
-      $req = $this->db->prepare("DELETE FROM gestionnaire WHERE $id = id");
+      $req = $this->db->prepare("DELETE FROM client WHERE id = '$id'");
+      
+      echo "DELETE FROM client WHERE id = '$id'";
       $req->execute();
     }
 
