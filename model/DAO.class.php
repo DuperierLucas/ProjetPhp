@@ -315,6 +315,13 @@ class DAO {
       return ($result != false);
     }
 
+    function suppressionCompteClient($id) {
+      $req = $this->db->prepare("DELETE FROM client WHERE id = '$id'");
+      
+      echo "DELETE FROM client WHERE id = '$id'";
+      $req->execute();
+    }
+
 }
 
 ?>
