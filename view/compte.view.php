@@ -42,6 +42,9 @@
           <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
         </p>
       </form>
+      <form action="../controler/afficherSupprimerCompte.ctrl.php" method="post">
+        <input class="bouton" type="submit" name="supprCompte" value="Supprimer Votre Compte">
+      </form>
     </section>
 
 
