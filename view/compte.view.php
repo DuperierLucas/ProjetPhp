@@ -49,7 +49,6 @@
     </form>
     <?php if(isset($admin)): ?>
       <fieldset>
-<<<<<<< HEAD
         <legend>Nouvel article</legend>
         <form action="afficherNouvelArticle.ctrl.php" method="post">
           <input class = "bouton" type="submit" name="nouvArticle" value="Créer un article"/>
@@ -68,19 +67,6 @@
       </form>
 
     </fieldset>
-=======
-        <legend>Changer mot de passe</legend>
-          <form action="afficherConfirmationMdP" method="post">
-            <label for="mdp">Changer mot de passe * :</label>
-            <input type="password" name="ajzt" size="100" id="mdp" required/>
-
-            <label for="mdp2">Confirmation mot de passe * :</label>
-            <input type="password" name="pdsf" size="100" id="mdp2" required/>
-
-            <input type="submit" name="chgMdp" value="Valider">
-          </form>
-      </fieldset>
->>>>>>> 4530ab5313ee08ad7dbad8aa3026ebf21ecc2856
 
       <fieldset class="quitterCompte">
         <form action="../controler/deconnection.ctrl.php" method="post">
