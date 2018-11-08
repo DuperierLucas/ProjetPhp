@@ -28,13 +28,11 @@ if (isset($_COOKIE['PHPSESSID'])) {
 //Si $valider est vrai selon signifie que l'utilisateur ...
 // ... a validé son panier ET été connecté
 if($valider) {
-  $_COOKIE = array();
-  foreach($_COOKIE as $key){
+  foreach($_COOKIE as $key => $value){
    // Suppression du cookie
-   unset($_COOKIE[$key]);
-   setcookie($key);
+   setcookie($key, $value, time() - 36000);
   }
- $msg = 'Votre commande a bien été prise en compte';
+// $msg = 'Votre commande a bien été prise en compte';
 }
 
 //S'il y a "supprimer" dans l'URL, cela signifie que ...
@@ -73,6 +71,9 @@ foreach ($articles as $value) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/panier.view.php');
+if ($valider) {
+  header('Location: ../controler/afficherPanier.ctrl.php');
+  exit();
+} else include('../view/panier.view.php');
 
 ?>

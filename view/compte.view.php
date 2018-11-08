@@ -60,7 +60,7 @@
 
             <label for="mdp2">Confirmation mot de passe * :</label>
             <input type="password" name="pdsf" size="100" id="mdp2" required/>
-            
+
             <input type="submit" name="chgMdp" value="Valider">
           </form>
       </fieldset>

@@ -87,4 +87,5 @@ if (isset($_SESSION['id']) && $_SESSION['id'] == 'A')
 
 include('../view/articles.view.php');
 
+
 ?>
