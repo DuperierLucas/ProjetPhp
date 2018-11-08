@@ -32,7 +32,7 @@ if($valider) {
    // Suppression du cookie
    setcookie($key, $value, time() - 36000);
   }
- $msg = 'Votre commande a bien été prise en compte';
+// $msg = 'Votre commande a bien été prise en compte';
 }
 
 //S'il y a "supprimer" dans l'URL, cela signifie que ...
@@ -71,6 +71,9 @@ foreach ($articles as $value) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/panier.view.php');
+if ($valider) {
+  header('Location: ../controler/afficherPanier.ctrl.php');
+  exit();
+} else include('../view/panier.view.php');
 
 ?>

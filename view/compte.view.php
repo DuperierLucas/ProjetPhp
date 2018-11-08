@@ -57,7 +57,7 @@
           <form action="" method="post">
 
           </form>
-        <label for="mdp">Changer mot de passe * :</label>
+        <label for="mdp">Nouveau mot de passe * :</label>
         <input type="password" name="ajzt" size="100" id="mdp" required/>
 
         <label for="mdp2">Confirmation mot de passe * :</label>
