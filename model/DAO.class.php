@@ -111,7 +111,6 @@ class DAO {
     return $result[0];
   }
 
-
     //Récupère les résultats d'une recherche
     function getResRecherche($recherche) : array{
       $req='SELECT * FROM article WHERE libelle LIKE "%'.$recherche.'%"';
@@ -240,16 +239,6 @@ class DAO {
       return $result[0];
     }
 
-
-    function getAllClients() : array {
-      $req = "SELECT * FROM client";
-
-      $sth = $this->db->query($req);
-      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
-
-      return $result;
-    }
-
     //Renvoie true si le mail existe déjà dans la base de donnée
     // false sinon
     function existe(string $mail) {
@@ -257,7 +246,7 @@ class DAO {
 
       $sth = $this->db->query($req);
 
-      return isset($sth);
+      return !isset($sth);
     }
 
     function getId() : int {
@@ -299,6 +288,13 @@ class DAO {
       $req ->execute();
     }
 
+    function modifierMdP($id, $mdp){
+      $req = $this->db->prepare("UPDATE client SET motDePasse= '$mdp' WHERE id = '$id'");
+
+      $req ->execute();
+    }
+
+
     function connexion($mail, $motDePasse) {
       $req = 'SELECT * FROM client WHERE mail="'.$mail.'" and motDePasse="'.$motDePasse.'"';
       $sth = $this->db->query($req);
@@ -317,7 +313,7 @@ class DAO {
 
     function suppressionCompteClient($id) {
       $req = $this->db->prepare("DELETE FROM client WHERE id = '$id'");
-      
+
       echo "DELETE FROM client WHERE id = '$id'";
       $req->execute();
     }

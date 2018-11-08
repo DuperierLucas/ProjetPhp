@@ -11,10 +11,11 @@
   <?php if(isset($msgErreur)) : ?>
     <p class="erreur"><?=$msgErreur?></p>
   <?php endif; ?>
-  <form  action="deconnection.ctrl.php" method="post">
+  <form  action="deconnection.ctrl.php?action=<?=$action?>" method="post">
     <fieldset>
       <label for="mdp">Entrer votre mot de passe</label>
       <input type="password" name="ajzt" id="mdp" required>
+        <input class="bouton" type="submit" name="valider" value="Valider">
     </fieldset>
   </form>
 
