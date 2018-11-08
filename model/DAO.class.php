@@ -242,11 +242,11 @@ class DAO {
     //Renvoie true si le mail existe déjà dans la base de donnée
     // false sinon
     function existe(string $mail) {
-      $req = "SELECT * FROM client where mail=$mail";
-
+      $req = "SELECT * FROM client where mail='$mail'";
       $sth = $this->db->query($req);
 
       return !isset($sth);
+
     }
 
     function getId() : int {
