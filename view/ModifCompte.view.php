@@ -8,14 +8,10 @@
 </head>
 <body>
   <?php require_once('../view/header.view.php'); ?>
-  <?php if(isset($msgErreur)) : ?>
-    <p class="erreur"><?=$msgErreur?></p>
-  <?php endif; ?>
   <form  action="deconnection.ctrl.php" method="post">
     <fieldset>
       <label for="mdp">Entrer votre mot de passe</label>
       <input type="password" name="ajzt" id="mdp" required>
-      <input type="submit" name="ajzt" value="Confirmer">
     </fieldset>
   </form>
 

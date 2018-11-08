@@ -54,14 +54,15 @@
       <?php endif; ?>
       <fieldset>
         <legend>Changer mot de passe</legend>
-          <form action="" method="post">
+          <form action="afficherConfirmationMdP" method="post">
+            <label for="mdp">Changer mot de passe * :</label>
+            <input type="password" name="ajzt" size="100" id="mdp" required/>
 
+            <label for="mdp2">Confirmation mot de passe * :</label>
+            <input type="password" name="pdsf" size="100" id="mdp2" required/>
+            
+            <input type="submit" name="chgMdp" value="Valider">
           </form>
-        <label for="mdp">Changer mot de passe * :</label>
-        <input type="password" name="ajzt" size="100" id="mdp" required/>
-
-        <label for="mdp2">Confirmation mot de passe * :</label>
-        <input type="password" name="pdsf" size="100" id="mdp2" required/>
       </fieldset>
 
       <fieldset class="quitterCompte">
