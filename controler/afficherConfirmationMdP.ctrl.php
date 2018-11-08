@@ -13,6 +13,11 @@ $categories = $dao->getCategories();
 //// REALISATION DES CALCULS
 ///////////////////////////////////////////////////
 
+//L'utilisateur veut enregistrer son nouveau mdp
+if ($_POST['enregistrer']) $action = "enregistrer";
+//L'utilisateur veut supprimer son compte
+else $action = "supprimer";
+
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////

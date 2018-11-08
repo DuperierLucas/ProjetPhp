@@ -31,8 +31,8 @@ if($valider) {
   foreach($_COOKIE as $key => $value){
    // Suppression du cookie
    setcookie($key, $value, time() - 36000);
-  }
-// $msg = 'Votre commande a bien été prise en compte';
+ }
+ // $msg = 'Votre commande a bien été prise en compte';
 }
 
 //S'il y a "supprimer" dans l'URL, cela signifie que ...
@@ -43,21 +43,15 @@ if (isset($_GET['supprimer'])) {
   // Suppression du cookie
   unset($_COOKIE[$ref]);
   setcookie($ref);
-
-  if ($nbCommande > 1) {
-    $_COOKIE[$ref] = $nbCommande - 1;
-  }
 }
 
 //Création tableau d'article venant des cookies enregistrés
 foreach ($_COOKIE as $key => $value) {
   //Si on a au moins une commande
-  if ($value > 0) {
-    $a = $dao->getArticle((int)$key); // On récurère l'article
-    $a->nbCommande = $value; //ajoute un attribut nbCommande
+  $a = $dao->getArticle((int)$key); // On récurère l'article
+  $a->nbCommande = $value; //ajoute un attribut nbCommande
 
-    array_push($articles, $a);
-  }
+  array_push($articles, $a);
 }
 
 $prixTotal = 0;
@@ -71,9 +65,15 @@ foreach ($articles as $value) {
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
+// Pour éviter une ré-actualisation de la page qui renverrais...
+// ...qui renverrais les mêmes paramètres et leverais une erreur
 if ($valider) {
+  header('Location: ../controler/afficherPanier.ctrl.php?msg=ok');
+} else if (isset($_GET['supprimer'])) {
   header('Location: ../controler/afficherPanier.ctrl.php');
-  exit();
-} else include('../view/panier.view.php');
+} else {
+  if (isset($_GET['msg'])) $msg = 'Votre commande a bien été prise en compte';
+  include('../view/panier.view.php');
+}
 
 ?>
