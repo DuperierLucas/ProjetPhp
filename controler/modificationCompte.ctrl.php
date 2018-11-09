@@ -39,6 +39,7 @@ if(isset($_SESSION['id']) && isset($_POST['ajzt'])) {
 }
 
 if (isset($msg)) {
+  //S'il sagit d'une déconnection ou d'une suppression de compte
   session_destroy();
 }
 

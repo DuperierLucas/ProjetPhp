@@ -11,7 +11,7 @@
   <?php if(isset($msgErreur)) : ?>
     <p class="erreur"><?=$msgErreur?></p>
   <?php endif; ?>
-  <form  action="deconnection.ctrl.php?action=<?=$action?>" method="post">
+  <form  action="modificationCompte.ctrl.php?action=<?=$action?>" method="post">
     <fieldset>
       <label for="mdp">Entrer votre mot de passe</label>
       <input type="hidden" name="pdsf" value="<?=$mdp?>">

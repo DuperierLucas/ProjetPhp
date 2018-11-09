@@ -70,7 +70,7 @@
               <input class = "bouton" type="submit" name="nouvArticle" value="Créer un article"/>
             </form>
         <?php endif; ?>
-        <form action="../controler/deconnection.ctrl.php" method="post">
+        <form action="../controler/modificationCompte.ctrl.php" method="post">
           <p>
             <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
           </p>
