@@ -52,36 +52,34 @@
         <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
       </fieldset>
     </form>
-    <?php if(isset($admin)): ?>
+
       <fieldset>
-        <legend>Nouvel article</legend>
-        <form action="afficherNouvelArticle.ctrl.php" method="post">
-          <input class = "bouton" type="submit" name="nouvArticle" value="Créer un article"/>
+        <legend>Changer mot de passe</legend>
+        <form action="../controler/afficherConfirmationMdP.ctrl.php" method="post">
+          <label for="mdp">Nouveau mot de passe * :</label>
+          <input type="password" name="ajzt" size="100" id="mdp" required/>
+
+          <label for="mdp2">Confirmation mot de passe * :</label>
+          <input type="password" name="pdsf" size="100" id="mdp2" required/>
+          <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
         </form>
       </fieldset>
-    <?php endif; ?>
-    <fieldset>
-      <legend>Changer mot de passe</legend>
-      <form action="../controler/afficherConfirmationMdP.ctrl.php" method="post">
-        <label for="mdp">Nouveau mot de passe * :</label>
-        <input type="password" name="ajzt" size="100" id="mdp" required/>
-
-        <label for="mdp2">Confirmation mot de passe * :</label>
-        <input type="password" name="pdsf" size="100" id="mdp2" required/>
-        <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
-      </form>
-
-    </fieldset>
-
       <fieldset class="quitterCompte">
+        <?php if(isset($admin)): ?>
+            <form action="afficherNouvelArticle.ctrl.php" method="post">
+              <input class = "bouton" type="submit" name="nouvArticle" value="Créer un article"/>
+            </form>
+        <?php endif; ?>
         <form action="../controler/deconnection.ctrl.php" method="post">
           <p>
             <input class = "bouton" type="submit" name="deconnection" value="Se déconnecter"/>
           </p>
         </form>
-        <form action="../controler/afficherConfirmationMdP.ctrl.php" method="post">
-          <input class="bouton" type="submit" name="supprCompte" value="Supprimer Compte">
-        </form>
+        <?php if(isset($client)): ?>
+          <form action="../controler/afficherConfirmationMdP.ctrl.php" method="post">
+            <input class="bouton" type="submit" name="supprCompte" value="Supprimer Compte">
+          </form>
+        <?php endif; ?>
       </fieldset>
 
     </section>
