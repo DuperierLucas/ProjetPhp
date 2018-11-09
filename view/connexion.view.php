@@ -7,8 +7,11 @@
     <link rel="icon" href="favicon.ico">
   </head>
   <body>
-      <?php require_once('../view/header.view.php'); ?>
-    <section>      
+    <?php require_once('../view/header.view.php'); ?>
+    <?php if (isset($msg)) :?>
+      <p class="panierMsg"><?=$msg?></p>
+    <?php endif; ?>
+    <section>
       <form action="../controler/afficherConnexion.ctrl.php" method="post">
         <fieldset>
           <legend>Connexion</legend>
@@ -17,8 +20,8 @@
           <?php endif ?>
           <input type="Email" name="mail" size="100" placeholder="Email" required/>
           <input type="password" name="ajzt" size="100" placeholder="Mot de passe" required/>
-        <p>
-          <input class="bouton" type="submit" value="Se connecter"/>
+          <p>
+            <input class="bouton" type="submit" value="Se connecter"/>
         </p>
         <p class="connexionAdmin">
           <label for="admin">Connexion Administrateur</label>

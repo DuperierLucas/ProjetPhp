@@ -16,7 +16,7 @@
         <p> - Mettre '1' pour les Vins Blancs</p>
         <p> - Mettre '2' pour les Vins Rouges</p>
         <p> - Mettre '3' pour les Vins Rosés</p>
-        <p> - Mettre '4' si votre article n'appartient à aucune Catégorie, il apparaîtra alors dans "tout les vins"</p>
+        <p> - Mettre '4' si votre article n'appartient à aucune catégorie, il apparaîtra alors dans "tout les vins"</p>
       </fieldset>
       <img class="imageVueModif" src="../view/image/vins/<?php echo $article->image ?>" alt="image de l'article">
       <fieldset>
