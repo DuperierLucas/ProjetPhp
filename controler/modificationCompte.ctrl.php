@@ -22,7 +22,10 @@ if(isset($_SESSION['id']) && isset($_POST['ajzt'])) {
   $id = $_SESSION['id'];
   $mdp = sha1($_POST['ajzt']);
   $nouveauMdp = $_POST['pdsf'];
-  $client = $dao->getClientID($id);
+  if($id != 'A'){
+    $client = $dao->getClientID($id);
+  }
+
 
   if ($client->motDePasse == $mdp) {
     if ($action == 'supprimer') {

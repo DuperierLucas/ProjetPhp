@@ -52,7 +52,7 @@
         <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
       </fieldset>
     </form>
-
+      <?php if(isset($client)): ?>
       <fieldset>
         <legend>Changer mot de passe</legend>
         <form action="../controler/afficherConfirmationMdP.ctrl.php" method="post">
@@ -64,6 +64,7 @@
           <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
         </form>
       </fieldset>
+      <?php endif; ?>
       <fieldset class="quitterCompte">
         <?php if(isset($admin)): ?>
             <form action="afficherNouvelArticle.ctrl.php" method="post">
