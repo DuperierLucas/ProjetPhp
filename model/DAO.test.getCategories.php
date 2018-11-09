@@ -5,8 +5,9 @@ require_once('DAO.class.php');
 
 $categories = $dao->getCategories();
 
-foreach($categorie as $key => $value) {
-  print($key." => ".$value."\n");
+//Affiche toutes les catégories
+foreach($categories as $key => $value) {
+  print($value->ref." => ".$value->nom." | ".$value->image."\n");
 }
 
 ?>

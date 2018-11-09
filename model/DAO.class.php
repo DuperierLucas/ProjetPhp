@@ -79,7 +79,7 @@ class DAO {
     return $result;
   }
 
-  // Acces au n articles à partir de la reférence $ref
+  // Acces au n articles à partir de la categorie $cat
   // Retourne une table d'objets de la classe Article
   function getCateg(int $n, string $categorie) : array {
     $req = "SELECT * FROM article WHERE $categorie = categorie ORDER BY ref LIMIT $n";
