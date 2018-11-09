@@ -14,8 +14,9 @@
   <form  action="deconnection.ctrl.php?action=<?=$action?>" method="post">
     <fieldset>
       <label for="mdp">Entrer votre mot de passe</label>
+      <input type="hidden" name="pdsf" value="<?=$mdp?>">
       <input type="password" name="ajzt" id="mdp" required>
-        <input class="bouton" type="submit" name="valider" value="Valider">
+      <input class="bouton" type="submit" name="valider" value="Valider">
     </fieldset>
   </form>
 

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Anonymes&Alcooliques - Mon compte</title>
-    <link rel="stylesheet" href="../view/stylesheet.css">
-    <link rel="icon" href="favicon.ico">
-  </head>
-  <body>
-    <?php require_once('../view/header.view.php'); ?>
-    <?php if(isset($msgConfirmation)) : ?>
-    <p class="panierMsg"><?= $msgConfimation?></p>
+<head>
+  <meta charset="utf-8">
+  <title>Anonymes&Alcooliques - Mon compte</title>
+  <link rel="stylesheet" href="../view/stylesheet.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <?php require_once('../view/header.view.php'); ?>
+
+  <?php if(isset($msgConfirmation)) : ?>
+    <p class="panierMsg"><?= $msgConfirmation?></p>
   <?php endif; ?>
 
-    <!-- Affichage du client -->
-    <section>
-      <form action="../controler/afficherCompte.ctrl.php" method="post">
+  <?php if(isset($msgErreur)) : ?>
+    <p class="erreur"><?= $msgErreur?></p>
+  <?php endif; ?>
+
+  <!-- Affichage du client -->
+  <section>
+    <form action="../controler/afficherCompte.ctrl.php" method="post">
         <fieldset>
           <legend>Votre compte</legend>
           <?php if(isset($client)): ?>

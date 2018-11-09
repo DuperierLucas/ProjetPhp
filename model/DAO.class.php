@@ -291,6 +291,7 @@ class DAO {
 
     function modifierMdP($id, $mdp){
       $req = $this->db->prepare("UPDATE client SET motDePasse= '$mdp' WHERE id = '$id'");
+      echo "UPDATE client SET motDePasse= '$mdp' WHERE id = '$id'";
 
       $req ->execute();
     }
@@ -315,7 +316,6 @@ class DAO {
     function suppressionCompteClient($id) {
       $req = $this->db->prepare("DELETE FROM client WHERE id = '$id'");
 
-      echo "DELETE FROM client WHERE id = '$id'";
       $req->execute();
     }
 
