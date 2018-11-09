@@ -39,20 +39,12 @@
     <section>
       <?php foreach ($articles as $value) : ?>
       <!-- Chaque div représente un article -->
-      <!-- lorsque clique sur le lien ajoute au panier -->
-      <a href="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>">
         <div>
           <article>
             <img src="../view/image/vins/<?= $value->image ?>" alt="<?= $value->libelle?>">
             <!-- Prix -->
             <h4><?= $value->prix?> €</h4>
             <!-- Si l'administrateur et connecté, on affiche le bouton de modification -->
-            <?php if(isset($id)) : ?>
-              <form class="modification" action="../controler/afficherModificationArticle.ctrl.php" method="post">
-                <input type="hidden" name="ref" value="<?php echo $value->ref  ?>">
-                <input class="bouton" type="submit" name="modifier" value="Modifier">
-              </form>
-            <?php endif; ?>
           </article>
           <!-- Nom du vin -->
           <h3><?= $value->libelle ?></h3>
@@ -63,8 +55,21 @@
           <p><?= $value->annee?></p>
           <!-- Pourcentage alcool -->
           <p><?= $value->pourcentageAlcool?>% d'alcool</p>
+          <!-- Si l'admin est connecté on affiche le bouton mofifier, sinon on affiche le bouton commander -->
+          <article class="boutArticle">
+            <?php if(isset($idAdmin)) : ?>
+              <form class="modification" action="../controler/afficherModificationArticle.ctrl.php" method="post">
+                <input type="hidden" name="ref" value="<?php echo $value->ref  ?>">
+                <input class="bouton" type="submit" name="modifier" value="Modifier">
+              </form>
+            <?php else : ?>
+              <form action="../controler/afficherArticles.ctrl.php?categorie=<?= $categorie?>&article=<?= $value->ref ?>" method="post">
+                <input class="bouton" type="submit" name="commander" value="Commander">
+              </form>
+            <?php endif; ?>
+          </article>
         </div>
-      </a>
+
     <?php endforeach ?>
 
     </section>

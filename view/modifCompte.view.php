@@ -15,11 +15,7 @@
     <fieldset>
       <label for="mdp">Entrer votre mot de passe</label>
       <input type="password" name="ajzt" id="mdp" required>
-<<<<<<< HEAD
         <input class="bouton" type="submit" name="valider" value="Valider">
-=======
-      <input type="submit" name="ajzt" value="Confirmer">
->>>>>>> 4530ab5313ee08ad7dbad8aa3026ebf21ecc2856
     </fieldset>
   </form>
 

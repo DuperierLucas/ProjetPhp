@@ -244,8 +244,9 @@ class DAO {
     function existe(string $mail) {
       $req = "SELECT * FROM client where mail='$mail'";
       $sth = $this->db->query($req);
+      $result = $sth->fetchAll(PDO::FETCH_CLASS, 'Client');
 
-      return !isset($sth);
+      return $result;
 
     }
 

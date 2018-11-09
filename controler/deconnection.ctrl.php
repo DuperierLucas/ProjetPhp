@@ -29,7 +29,7 @@ if(isset($_SESSION['id']) && isset($_POST['ajzt'])) {
       $msg = "Votre compte a bien été supprimé";
     } else {
       $dao->modifierMdP($client->id, $mdp);
-      $msgConfirmation = "Votre mot de passe a bien été modifié"
+      $msgConfirmation = "Votre mot de passe a bien été modifié";
     }
   } else {
     $msgErreur = "Mot de passe incorrect";

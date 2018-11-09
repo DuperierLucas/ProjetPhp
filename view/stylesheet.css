@@ -18,6 +18,7 @@ body {
   margin: 8px;
 }
 
+
 /* ********************************************************** */
 /* concerne principalement l'affichage du header */
 /* ********************************************************** */
@@ -143,6 +144,7 @@ section{
 
 }
 section div{
+  position: relative;
   height: 375px;
   width: 375px;
   margin: 8px;
@@ -176,6 +178,13 @@ section div article input{
   height: 40px;
   margin : 10px;
 }
+/* Affichage des bouton commander et modifier */
+.boutArticle{
+  position: absolute;
+  bottom: 20px;
+  left: 250px;
+
+}
 /* ********************************************************** */
 /* concerne principalement les options de connexion */
 /* ********************************************************** */
@@ -184,7 +193,8 @@ section div article input{
 fieldset{
   display: flex;
   flex-direction: column;
-  width: 400px;
+  border-color: #23222f;
+  width: 300px;
   margin: 8px;
 }
 fieldset input{
@@ -193,7 +203,7 @@ fieldset input{
   border-color: #23222f;
   color: #23222f;
   height: 30px;
-  margin: 8px;
+  margin: 8px; Libellé * : Description * : Pourcentage d'alcool * : Annee * : Catégorie * : Prix * : Nom de l'image * :
 }
 
 /* Style des boutons */
@@ -265,10 +275,17 @@ footer a{
   }
 
   fieldset{
-    height: 275px;
     width: 275px;
   }
-
+  .boutArticle{
+    bottom: 5px;
+    left: 170px;
+  }
+  .boutArticle input{
+    font-size: 1.2em;
+    height: 30px;
+    padding: 2px;
+  }
 }
 @media (max-width:700px) {
   .header{
@@ -292,12 +309,15 @@ footer a{
 
   }
   section div img{
-    max-height: 150px;
+    max-height: 450px;
     max-width: 125px;
   }
 
   fieldset{
-    height: 240px;
     width: 240px;
+  }
+
+  .boutArticle{
+    left: 150px;
   }
 }

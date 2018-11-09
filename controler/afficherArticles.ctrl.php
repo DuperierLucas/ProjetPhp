@@ -45,7 +45,7 @@ if ($categorie == 'tout' && isset($_GET['ref'])) {
   $articles = $dao->getCateg($n, $categorie);
 }
 
-if (isset($_GET['article'])) {
+if (!empty($_GET['article']) && !isset($id)) {
   //Le client à cliquer sur un article pour le commander
   $ref = $_GET['article'];
   //On ajoute cette article aux cookies
@@ -78,8 +78,9 @@ if(empty($prev)) {
   $prev = $articles;
 }
 
+// Si l'admin est connecté, on passe son id à la vue pour faire apparaitre le bouton modifier
 if (isset($_SESSION['id']) && $_SESSION['id'] == 'A')
-  $id = $_SESSION['id'];
+  $idAdmin = $_SESSION['id'];
 
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
