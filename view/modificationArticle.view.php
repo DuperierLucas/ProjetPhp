@@ -8,6 +8,9 @@
   </head>
   <body>
     <?php require_once('../view/header.view.php'); ?>
+    <?php if (isset($msg)) :?>
+      <p class="panierMsg"><?=$msg?></p>
+    <?php endif; ?>
 
     <section>
       <fieldset>
@@ -24,13 +27,26 @@
         <form action="afficherModificationArticle.ctrl.php" method="post">
           <p> Référence de l'article (ne peut être modifiée) : <?php echo $article->ref ?></p>
           <input type="hidden" name="ref" value="<?php echo $article->ref ?>"> <!-- On fait passer la référence de manière cachée -->
-          <p> Libellé : <input type="text" name="libelle" value="<?php echo $article->libelle ?>"> </p>
-          <p> Description : <input type="text" name="description" value="<?php echo $article->description ?>"> </p>
-          <p> Pourcentage d'alcool : <input type="text" name="pourcentageAlcool" value="<?php echo $article->pourcentageAlcool ?>"> </p>
-          <p> Annee : <input type="text" name="annee" value="<?php echo $article->annee ?>"> </p>
-          <p> Catégorie : <input type="text" name="categorie" value="<?php echo $article->categorie ?>"> </p>
-          <p> Prix : <input type="text" name="prix" value="<?php echo $article->prix ?>"> </p>
-          <p> Nom de l'image : <input type="text" name="image" value="<?php echo $article->image ?>"> </p>
+          <label for="lib">Libellé * :</label>
+          <input type="text" name="libelle" id="lib" value="<?php echo $article->libelle ?>">
+
+          <label for="desc">Description * :</label>
+          <input type="text" name="description" id="desc" value="<?php echo $article->description ?>">
+
+          <label for="pourcent">Pourcentage d'alcool  * :</label>
+          <input type="text" name="pourcentageAlcool" id="pourcent" value="<?php echo $article->pourcentageAlcool ?>">
+
+          <label for="ann">Annee * :</label>
+          <input type="text" name="annee" id="ann" value="<?php echo $article->annee ?>">
+
+          <label for="cat">Catégorie * :</label>
+          <input type="text" name="categorie" id="cat" value="<?php echo $article->categorie ?>">
+
+          <label for="prix">Prix * :</label>
+          <input type="text" name="prix" id="prix" value="<?php echo $article->prix ?>">
+
+          <label for="img">Nom de l'image * :</label>
+          <input type="text" name="image" value="<?php echo $article->image ?>">
           <input class="bouton" type="submit" name="enregistrer" value="Enregistrer les modifications">
         </form>
       </fieldset>

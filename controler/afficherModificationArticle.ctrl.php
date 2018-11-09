@@ -8,7 +8,12 @@ include_once('../model/DAO.class.php');
 $categories = $dao->getCategories();
 
 //On récupère la référence de l'article que l'on souhaite modifier
-$ref = $_POST['ref'];
+if (isset($_POST['ref'])) {
+  $ref = $_POST['ref'];
+} else {
+  $ref = $_GET['ref'];
+  $msg = "L'article a bien été modifié";
+}
 
 ////////////////////////////////////////////////////
 //// REALISATION DES CALCULS
@@ -17,21 +22,20 @@ $ref = $_POST['ref'];
 //on récupère l'article
 $article = $dao->getArticle($ref);
 
-
 //Si l'utilisateur a modifier l'article
 if(!empty($_POST['enregistrer'])) {
   $dao->modifierArticle($_POST['ref'], $_POST['libelle'], $_POST['description'], $_POST['pourcentageAlcool'], $_POST['annee'], $_POST['categorie'], $_POST['prix'], $_POST['image']);
 }
 
-
-
-
-
 ////////////////////////////////////////////////////
 //// DECLANCHEMENT DE LA VUE
 ///////////////////////////////////////////////////
 
-include('../view/modificationArticle.view.php');
+if (!empty($_POST['enregistrer'])) {
+  header('Location: afficherModificationArticle.ctrl.php?ref='.$ref);
+} else {
+  include('../view/modificationArticle.view.php');
+}
 
 
 
